@@ -1,0 +1,105 @@
+/* Apply background color for the profile page */
+body {
+    background-color: #f4f4f9; /* Light grey background */
+    font-family: Arial, sans-serif; /* Set the font */
+    color: #333; /* Dark text color for readability */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw; /* Full width of the viewport */
+}
+
+/* Profile container styling */
+.profile-container {
+    background-color: #358a5e; /* White background for the profile box */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Stronger shadow for more depth */
+    padding: 60px; /* Padding for spacing */
+    height: 100%; /* Full height */
+    width: 100%; /* Full width */
+    max-width: none; /* Ensure no max-width to let it fill the screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Profile header container - holds the header and the profile picture */
+.profile-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px; /* Space between the header and the rest of the content */
+}
+
+/* Profile header */
+.profile-header {
+    font-size: 3em; /* Large font size for the header */
+    color: #333;
+}
+
+/* Profile picture container (positioned at the top right) */
+.profile-pic-container {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    text-align: center;
+}
+
+.profile-pic {
+    width: 180px; /* Larger profile picture */
+    height: 180px; /* Larger profile picture */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ccc; /* Thicker border */
+}
+
+.file-upload {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+}
+
+.save-button {
+    margin-top: 15px;
+    background-color: #decbc1; /* Blue background */
+    color: #fff; /* White text */
+    border: none;
+    padding: 12px 24px; /* Button padding */
+    font-size: 1.2em; /* Larger font size */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.save-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Profile info section */
+.profile-info {
+    font-size: 1.5em; /* Larger font for profile info */
+    margin-bottom: 40px; /* Space between profile info and the logout button */
+}
+
+/* Profile button (example for logout or another action) */
+.profile-button {
+    background-color: #007bff; /* Blue background */
+    color: #fff; /* White text */
+    border: none;
+    padding: 14px 20px; /* Reduced the padding on the left and right to make the button smaller */
+    font-size: 1.2em; /* Larger font size */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    max-width: 250px; /* Optional: control the max width */
+    width: fit-content; /* Ensure the button width fits the content */
+    margin: 0 auto; /* Center the button */
+}
+
+.profile-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" type="text/css" href="/profile.css/prof.css"> <!-- Make sure this path is correct -->
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header-container">
+            <h1 class="profile-header">Welcome to Your Profile</h1>
+            <div class="profile-pic-container">
+                <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
+                <input type="file" id="pic-upload" class="file-upload" onchange="previewImage(event)">
+                <button onclick="saveProfilePic()" class="save-button">Save Changes</button>
+            </div>
+        </div>
+        
+        <div class="profile-info">
+            <p><strong>Name:</strong>IshowSpeed</p>
+            <p><strong>Email:</strong> speedoo@example.com</p>
+            <!-- Add other profile info here -->
+        </div>
+        <button class="profile-button" onclick="window.location.href='/logout'">Logout</button>
+    </div>
+
+    <script>
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const output = document.querySelector('.profile-pic');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        function saveProfilePic() {
+            alert("Profile picture saved!");
+            // Implement save functionality here (e.g., upload to server)
+        }
+    </script>
+</body>
+</html>
