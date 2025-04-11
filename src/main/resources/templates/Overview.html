@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Overview - PETIFY</title>
+    <link rel="stylesheet" type="text/css" href="/profile.css/Overview.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="overview-container">
+        <h1>PETIFY Admin Overview</h1>
+
+        <!-- STAT CARDS -->
+        <div class="stat-cards">
+            <div class="card">🐶<p>Total Sellers</p><h2>120</h2></div>
+            <div class="card">🛒<p>Listed Products</p><h2>540</h2></div>
+            <div class="card">📅<p>Today's Schedules</p><h2>8</h2></div>
+            <div class="card">💸<p>Pending Payouts</p><h2>₱15,200</h2></div>
+            <div class="card">📊<p>Monthly Revenue</p><h2>₱102,000</h2></div>
+        </div>
+
+        <!-- MAIN SECTION -->
+        <div class="main-section">
+            <!-- Recent Activity -->
+            <div class="panel">
+                <h3>📢 Recent Activity</h3>
+                <ul>
+                    <li>New seller "Paws & More" registered</li>
+                    <li>Product "Organic Dog Food" listed</li>
+                    <li>₱2,000 payout processed to user123</li>
+                </ul>
+            </div>
+
+            <!-- Appointments -->
+            <div class="panel">
+                <h3>📅 Upcoming Appointments</h3>
+                <ul>
+                    <li>April 12 - Vet Checkup @ 10:00 AM</li>
+                    <li>April 12 - Grooming Service @ 3:00 PM</li>
+                </ul>
+                <button>Manage Appointments</button>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="bottom-section">
+            <!-- Top Sellers -->
+            <div class="panel">
+                <h3>🏆 Top Performing Sellers</h3>
+                <table>
+                    <thead>
+                        <tr><th>Seller</th><th>Sales</th><th>Products</th><th>Rating</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Pet Heaven</td><td>₱15,000</td><td>12</td><td>4.9⭐</td></tr>
+                        <tr><td>Woof Shop</td><td>₱10,800</td><td>9</td><td>4.7⭐</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Revenue Graph Placeholder -->
+            <div class="panel">
+                <h3>📈 Monthly Revenue</h3>
+                <div class="graph-placeholder">
+                    <p>Chart will be displayed here</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

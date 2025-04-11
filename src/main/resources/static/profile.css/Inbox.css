@@ -1,0 +1,345 @@
+:root {
+    --primary-color: #4a69bd;
+    --primary-light: #e8f0fe;
+    --text-color: #333;
+    --border-color: #e1e4e8;
+    --hover-bg: #f6f8fa;
+    --active-bg: #e3f2fd;
+    --sidebar-width: 250px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f9fafb;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: white;
+    border-right: 1px solid var(--border-color);
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    padding: 0 20px 20px;
+}
+
+.menu-section {
+    margin-bottom: 20px;
+}
+
+.menu-title {
+    color: #9aa0a6;
+    font-size: 14px;
+    padding: 10px 20px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background-color: var(--hover-bg);
+}
+
+.menu-item.active {
+    background-color: var(--active-bg);
+    color: var(--primary-color);
+}
+
+.menu-item i {
+    margin-right: 12px;
+    font-size: 18px;
+    color: #70757a;
+}
+
+.menu-item.active i {
+    color: var(--primary-color);
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-header h1 {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f1f3f4;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-left: 20px;
+    flex: 1;
+    max-width: 500px;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    flex: 1;
+    font-size: 14px;
+    outline: none;
+    padding: 4px 8px;
+}
+
+.search-bar i {
+    color: #70757a;
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Inbox Content Styles */
+.inbox-container {
+    display: flex;
+    flex: 1;
+}
+
+.message-list {
+    width: 30%;
+    border-right: 1px solid var(--border-color);
+    background-color: white;
+    overflow-y: auto;
+    list-style-type: none;
+}
+
+.message-item {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.message-item:hover {
+    background-color: var(--hover-bg);
+}
+
+.message-item.active {
+    background-color: var(--active-bg);
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.message-sender {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.message-time {
+    font-size: 12px;
+    color: #70757a;
+}
+
+.message-subject {
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: var(--text-color);
+}
+
+.message-preview {
+    font-size: 13px;
+    color: #70757a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.message-item.unread .message-sender,
+.message-item.unread .message-subject {
+    font-weight: 700;
+}
+
+.message-item.unread::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+    left: 6px;
+    margin-top: 6px;
+}
+
+.message-detail {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-header {
+    margin-bottom: 20px;
+}
+
+.detail-subject {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.detail-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #70757a;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.detail-sender {
+    display: flex;
+    align-items: center;
+}
+
+.sender-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    font-weight: 500;
+}
+
+.detail-content {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.reply-box {
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+.reply-box textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    resize: none;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.reply-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+/* Status indicators */
+.status-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.status-new {
+    background-color: #4caf50;
+}
+
+.status-pending {
+    background-color: #ff9800;
+}
+
+.status-resolved {
+    background-color: #9e9e9e;
+}
+
+/* Empty state */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #70757a;
+    text-align: center;
+    padding: 20px;
+}
+
+.empty-state i {
+    font-size: 64px;
+    margin-bottom: 16px;
+    color: #d1d5db;
+}
+
+@media (max-width: 992px) {
+    .inbox-container {
+        flex-direction: column;
+    }
+    
+    .message-list {
+        width: 100%;
+        height: 300px;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+}

@@ -34,4 +34,17 @@ public class PetController {
     public String profile() {
         return "profile"; // this will look for profile.html inside templates/
     }
+    @GetMapping("/overview")
+    public String adminOverview() {
+        return "overview"; // Loads overview.html
+    }
+     
+    @GetMapping("/inbox")
+    public String inbox() {
+        return "inbox"; // Loads inbox.html
+    }
+
+
+
+
 }
