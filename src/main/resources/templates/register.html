@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - Petify</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <style>
+    body { font-family: 'Fredoka', sans-serif; }
+    .step { display: none; }
+    .step.active { display: block; }
+    .input-error { border-color: red !important; }
+    .hidden { display: none; }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('images/Petify_bg.png');">
+
+  <div class="bg-white shadow-xl rounded-2xl w-full max-w-2xl p-8 space-y-8">
+    <h2 class="text-3xl font-bold text-center text-orange-600">Register to Petify</h2>
+
+    <!-- Step 1 -->
+    <div id="step-1" class="step active">
+      <h3 class="text-lg font-semibold text-gray-700 mb-4">Step 1: Basic Information</h3>
+      <div class="space-y-4">
+        <input id="firstName" type="text" placeholder="First Name" class="w-full p-3 border rounded focus:ring-orange-500" required />
+        <input id="lastName" type="text" placeholder="Last Name" class="w-full p-3 border rounded focus:ring-orange-500" required />
+        <input id="age" type="number" placeholder="Age" class="w-full p-3 border rounded focus:ring-orange-500" required />
+        <select id="gender" class="w-full p-3 border rounded focus:ring-orange-500" required>
+          <option value="">Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <p id="step1Error" class="text-red-500 hidden mt-2">Please fill in all fields.</p>
+      <div class="flex justify-between mt-6">
+        <a href="login" class="bg-gray-300 text-gray-800 px-6 py-2 rounded hover:bg-gray-400">Login</a>
+        <button class="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600" onclick="validateStep1()">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div id="step-2" class="step">
+      <h3 class="text-lg font-semibold text-gray-700 mb-4">Step 2: Birthdate & Address</h3>
+      <div class="space-y-4">
+        <input id="birthdate" type="date" class="w-full p-3 border rounded focus:ring-orange-500" required />
+        <input id="address" type="text" placeholder="Address" class="w-full p-3 border rounded focus:ring-orange-500" required />
+      </div>
+      <p id="step2Error" class="text-red-500 hidden mt-2">Please fill in all fields.</p>
+      <div class="flex justify-between mt-6">
+        <button class="bg-gray-300 text-gray-800 px-6 py-2 rounded hover:bg-gray-400" onclick="nextStep(1)">Back</button>
+        <button class="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600" onclick="validateStep2()">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div id="step-3" class="step">
+      <h3 class="text-lg font-semibold text-gray-700 mb-4">Step 3: Email & Password</h3>
+      <div class="space-y-4">
+        <input id="email" type="email" placeholder="Email" class="w-full p-3 border rounded focus:ring-orange-500" required />
+        <input id="password" type="password" placeholder="Password" class="w-full p-3 border rounded focus:ring-orange-500" required />
+        <input id="confirmPassword" type="password" placeholder="Confirm Password" class="w-full p-3 border rounded focus:ring-orange-500" required />
+        <input id="otp" type="text" placeholder="Enter OTP Code" class="w-full p-3 border rounded focus:ring-orange-500" required />
+        <p id="passwordError" class="text-red-500 hidden">Passwords do not match.</p>
+        <p id="step3Error" class="text-red-500 hidden">Please fill in all fields.</p>
+      </div>
+      <div class="flex justify-between mt-6">
+        <button class="bg-gray-300 text-gray-800 px-6 py-2 rounded hover:bg-gray-400" onclick="nextStep(2)">Back</button>
+        <button class="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600" onclick="validateStep3()">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div id="step-4" class="step text-center">
+      <h3 class="text-2xl font-bold text-green-600 mb-4">✅ Registration Successful!</h3>
+      <p class="text-gray-700 mb-6">Redirecting to homepage...</p>
+    </div>
+  </div> 
+
+  <script>
+    function validateStep1() {
+      const fields = ["firstName", "lastName", "age", "gender"];
+      let isValid = true;
+      fields.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value || el.value === "Gender" || el.value === "") {
+          el.classList.add("input-error");
+          isValid = false;
+        } else {
+          el.classList.remove("input-error");
+        }
+      });
+      document.getElementById("step1Error").classList.toggle("hidden", isValid);
+      if (isValid) nextStep(2);
+    }
+
+    function validateStep2() {
+      const fields = ["birthdate", "address"];
+      let isValid = true;
+      fields.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value) {
+          el.classList.add("input-error");
+          isValid = false;
+        } else {
+          el.classList.remove("input-error");
+        }
+      });
+      document.getElementById("step2Error").classList.toggle("hidden", isValid);
+      if (isValid) nextStep(3);
+    }
+
+    function validateStep3() {
+      const email = document.getElementById("email");
+      const password = document.getElementById("password");
+      const confirmPassword = document.getElementById("confirmPassword");
+      const otp = document.getElementById("otp");
+
+      let isValid = true;
+
+      [email, password, confirmPassword, otp].forEach(field => {
+        if (!field.value) {
+          field.classList.add("input-error");
+          isValid = false;
+        } else {
+          field.classList.remove("input-error");
+        }
+      });
+
+      if (!isValid) {
+        document.getElementById("step3Error").classList.remove("hidden");
+        return;
+      } else {
+        document.getElementById("step3Error").classList.add("hidden");
+      }
+
+      if (password.value !== confirmPassword.value) {
+        password.classList.add("input-error");
+        confirmPassword.classList.add("input-error");
+        document.getElementById("passwordError").classList.remove("hidden");
+        return;
+      } else {
+        password.classList.remove("input-error");
+        confirmPassword.classList.remove("input-error");
+        document.getElementById("passwordError").classList.add("hidden");
+      }
+
+      nextStep(4);
+    }
+
+    function nextStep(step) {
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+      document.getElementById(`step-${step}`).classList.add('active');
+
+      if (step === 4) {
+        const userData = {
+          firstName: document.getElementById('firstName').value,
+          lastName: document.getElementById('lastName').value,
+          age: document.getElementById('age').value,
+          gender: document.getElementById('gender').value,
+          birthdate: document.getElementById('birthdate').value,
+          address: document.getElementById('address').value,
+          email: document.getElementById('email').value,
+          otp: document.getElementById('otp').value,
+          password: document.getElementById('password').value,
+          confirmPassword: document.getElementById('confirmPassword').value
+        };
+
+        saveUserData(userData);
+      }
+    }
+
+    function saveUserData(userData) {
+      fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userData)
+      })
+      .then(response => response.text())
+      .then(msg => {
+        console.log("✅ Registered:", msg);
+        setTimeout(() => {
+          window.location.href = "/homepage";
+        }, 2000);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+    }
+  </script>
+
+</body>
+</html>
