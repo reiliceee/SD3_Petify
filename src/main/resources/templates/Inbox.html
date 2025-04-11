@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PETIFY - Admin Inbox</title>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="/profile.css/Inbox.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="logo">PETIFY</div>
+        <div class="menu-section">
+            <div class="menu-title">Admin tools</div>
+            <a href="#" class="menu-item">
+                <i class="fas fa-home"></i>
+                Overview
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-box"></i>
+                Products
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-calendar"></i>
+                Schedules
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-money-bill"></i>
+                Payouts
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-chart-bar"></i>
+                Statement
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-cog"></i>
+                Settings
+            </a>
+        </div>
+        <div class="menu-section">
+            <div class="menu-title">Insights</div>
+            <a href="#" class="menu-item active">
+                <i class="fas fa-inbox"></i>
+                Inbox
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-bell"></i>
+                Notifications
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <div class="content-header">
+            <h1>Inbox</h1>
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search messages...">
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-primary">
+                    <i class="fas fa-plus"></i> New Message
+                </button>
+            </div>
+        </div>
+
+        <div class="inbox-container">
+            <!-- Message List -->
+            <div class="message-list">
+                <div class="message-item unread active">
+                    <div class="message-header">
+                        <span class="message-sender">PetSupplyCo</span>
+                        <span class="message-time">10:30 AM</span>
+                    </div>
+                    <div class="message-subject">Product Inventory Question</div>
+                    <div class="message-preview">Hello, I wanted to ask about restocking the premium dog food...</div>
+                </div>
+                <div class="message-item">
+                    <div class="message-header">
+                        <span class="message-sender">Happy Paws Store</span>
+                        <span class="message-time">Yesterday</span>
+                    </div>
+                    <div class="message-subject">Payment Issue</div>
+                    <div class="message-preview">We're having trouble processing our latest payment for...</div>
+                </div>
+                <div class="message-item unread">
+                    <div class="message-header">
+                        <span class="message-sender">Cat Paradise</span>
+                        <span class="message-time">Apr 10</span>
+                    </div>
+                    <div class="message-subject">New Product Submission</div>
+                    <div class="message-preview">We'd like to add our new organic cat treats to the marketplace...</div>
+                </div>
+                <div class="message-item">
+                    <div class="message-header">
+                        <span class="message-sender">Exotic Pets Ltd</span>
+                        <span class="message-time">Apr 9</span>
+                    </div>
+                    <div class="message-subject">Account Verification</div>
+                    <div class="message-preview">We've submitted all required documents for verification but...</div>
+                </div>
+                <div class="message-item">
+                    <div class="message-header">
+                        <span class="message-sender">Pet Toys Inc</span>
+                        <span class="message-time">Apr 7</span>
+                    </div>
+                    <div class="message-subject">Shipping Option Request</div>
+                    <div class="message-preview">We're looking to add international shipping to our products...</div>
+                </div>
+            </div>
+
+            <!-- Message Detail -->
+            <div class="message-detail">
+                <div class="detail-header">
+                    <div class="detail-subject">Product Inventory Question</div>
+                    <div class="detail-meta">
+                        <div class="detail-sender">
+                            <div class="sender-avatar">PS</div>
+                            <div>
+                                <div>PetSupplyCo</div>
+                                <div>seller@petsupplyco.com</div>
+                            </div>
+                        </div>
+                        <div class="detail-time">Apr 12, 2025 - 10:30 AM</div>
+                    </div>
+                </div>
+                <div class="detail-content">
+                    <p>Hello Admin,</p>
+                    <br>
+                    
+                    <p>Thanks for your help!</p>
+                    <br>
+                    <p>Best regards,<br>Sarah Johnson<br>PetSupplyCo</p>
+                </div>
+                <div class="reply-box">
+                    <textarea placeholder="Type your reply here..."></textarea>
+                    <div class="reply-actions">
+                        <button class="btn">Save Draft</button>
+                        <button class="btn btn-primary">Send Reply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
