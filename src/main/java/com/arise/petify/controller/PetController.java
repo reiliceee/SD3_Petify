@@ -72,7 +72,16 @@ public class PetController {
         return "inbox"; // Loads inbox.html
     }
 
+    @GetMapping("/pet-management")
+    public String petManagementPage() {
+    return "petmanagement"; // no .html, just the filename base
+    }
 
+     
+    @GetMapping("/Adminprofile")
+    public String Adminprofile() {
+        return "profile"; // Userprofile.html
+    }
 
 
 }

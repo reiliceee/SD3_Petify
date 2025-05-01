@@ -2,103 +2,108 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Account Settings</title>
-  <link rel="stylesheet" href="/profile.css/Userprof.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Settings - Petify</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="dashboard">
+<body class="bg-orange-50 font-sans">
+  <div class="flex min-h-screen">
+
     <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="sidebar-top">
-        <h2 class="logo">PETIFY</h2>
-        <p class="sidebar-title">Navigation</p>
-        <ul class="nav-list">
-          <li><a href="/" class="[active-class]"><span>🏠</span> Home</a></li>
-          <li><a href="/profile" class="[active-class]"><span>👤</span> Profile</a></li>
-          <li><a href="/shop" class="[active-class]"><span>🛒</span> Buy Pets & Products</a></li>
-          <li><a href="/appointments" class="[active-class]"><span>📅</span> Appointments</a></li>
-          <li><a href="/lost-found" class="[active-class]"><span>🕵️</span> Lost & Found</a></li>
-          <li><a href="/community" class="[active-class]"><span>💬</span> Community</a></li>
-          <li><a href="/feedback" class="[active-class]"><span>⭐</span> Rating & Feedback</a></li>
-          <li><a href="/about" class="[active-class]"><span>📖</span> About</a></li>
-          <li><a href="/services" class="[active-class]"><span>🛠️</span> Services</a></li>
-          <li><a href="/contacts" class="[active-class]"><span>📞</span> Contact</a></li>
-        </ul>
+    <aside class="w-64 bg-white shadow-lg flex-shrink-0">
+      <div class="p-6 border-b">
+        <h2 class="text-2xl font-bold text-orange-500">PETIFY</h2>
+        <p class="text-gray-500 mt-2">Navigation</p>
       </div>
+      <nav class="p-6 space-y-4 text-gray-700">
+        <ul class="space-y-2">
+          <li><a href="/" class="flex items-center gap-2 hover:text-orange-500"><span>🏠</span> Home</a></li>
+          <li><a href="/profile" class="flex items-center gap-2 hover:text-orange-500"><span>👤</span> Profile</a></li>
+          <li><a href="/shop" class="flex items-center gap-2 hover:text-orange-500"><span>🛒</span> Buy Pets & Products</a></li>
+          <li><a href="/appointments" class="flex items-center gap-2 hover:text-orange-500"><span>📅</span> Appointments</a></li>
+          <li><a href="/lost-found" class="flex items-center gap-2 hover:text-orange-500"><span>🕵️</span> Lost & Found</a></li>
+          <li><a href="/community" class="flex items-center gap-2 hover:text-orange-500"><span>💬</span> Community</a></li>
+          <li><a href="/feedback" class="flex items-center gap-2 hover:text-orange-500"><span>⭐</span> Rating & Feedback</a></li>
+          <li><a href="/about" class="flex items-center gap-2 hover:text-orange-500"><span>📖</span> About</a></li>
+          <li><a href="/services" class="flex items-center gap-2 hover:text-orange-500"><span>🛠️</span> Services</a></li>
+          <li><a href="/contacts" class="flex items-center gap-2 hover:text-orange-500"><span>📞</span> Contact</a></li>
+        </ul>
+      </nav>
     </aside>
 
     <!-- Main Content -->
-    <main class="settings-container">
-      <div class="settings-box">
-
+    <main class="flex-1 p-8">
+      <div class="max-w-5xl mx-auto bg-white rounded-lg shadow p-8">
         <!-- Profile Header -->
-        <div class="profile-header">
+        <div class="flex justify-between items-center mb-8">
           <div>
-            <h2>Welcome, LeBron</h2>
-            <p>Tue, 30 April 2025</p>
+            <h2 class="text-2xl font-bold text-orange-500">Welcome, LeBron</h2>
+            <p class="text-gray-500">Tue, 30 April 2025</p>
           </div>
-          <div class="header-actions">
-            <input type="text" placeholder="🔍 Search">
-            <img src="/profile.jpg" class="profile-icon" alt="Profile Icon">
+          <div class="flex items-center space-x-4">
+            <input type="text" placeholder="🔍 Search" class="p-2 border rounded">
+            <img src="/profile.jpg" class="w-10 h-10 rounded-full object-cover border-2 border-orange-500" alt="Profile Icon">
           </div>
         </div>
 
         <!-- Profile Card -->
-        <div class="profile-card">
-          <div class="user-info">
-            <img src="/profile.jpg" alt="User Avatar" class="avatar-lg">
+        <div class="flex items-center justify-between bg-orange-50 p-4 rounded shadow mb-8">
+          <div class="flex items-center space-x-4">
+            <img src="/profile.jpg" alt="User Avatar" class="w-20 h-20 rounded-full object-cover border-4 border-orange-500">
             <div>
-              <h3>LeBron James</h3>
-              <p>dubub@writetome.net</p>
+              <h3 class="text-lg font-semibold">LeBron James</h3>
+              <p class="text-gray-500">dubub@writetome.net</p>
             </div>
           </div>
-          <button class="btn edit-btn">Edit</button>
+          <button class="px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-600">Edit</button>
         </div>
 
         <!-- Profile Form -->
-        <form class="profile-form-grid">
-          <div class="form-group">
-            <label>Full Name</label>
-            <input type="text" placeholder="Full Name" value="LEBRON JAMES">
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div>
+            <label class="block mb-1 text-sm font-medium">Full Name</label>
+            <input type="text" value="LEBRON JAMES" class="w-full p-3 border rounded">
           </div>
-          <div class="form-group">
-            <label>Role</label>
-            <input type="text" placeholder="Role" value="LAKERS FORWARD">
+          <div>
+            <label class="block mb-1 text-sm font-medium">Role</label>
+            <input type="text" value="LAKERS FORWARD" class="w-full p-3 border rounded">
           </div>
-          <div class="form-group">
-            <label>Location</label>
-            <input type="text" placeholder="Location" value="CIT">
+          <div>
+            <label class="block mb-1 text-sm font-medium">Location</label>
+            <input type="text" value="CIT" class="w-full p-3 border rounded">
           </div>
-          <div class="form-group">
-            <label>Shop Name</label>
-            <input type="text" placeholder="Shop Name" value="Lenovo">
+          <div>
+            <label class="block mb-1 text-sm font-medium">Shop Name</label>
+            <input type="text" value="Lenovo" class="w-full p-3 border rounded">
           </div>
-          <div class="form-group" style="grid-column: span 2;">
-            <label>About</label>
-            <textarea rows="5">Lead Visual Designer at @Lenovo
+          <div class="md:col-span-2">
+            <label class="block mb-1 text-sm font-medium">About</label>
+            <textarea rows="4" class="w-full p-3 border rounded">Lead Visual Designer at @Lenovo
 Email: dubub@writetome.net</textarea>
           </div>
-          <div class="form-footer" style="grid-column: span 2;">
-            <button class="btn btn-update">Update Profile</button>
+          <div class="md:col-span-2 text-right">
+            <button type="submit" class="px-6 py-2 bg-orange-500 text-white rounded hover:bg-orange-600">Update Profile</button>
           </div>
         </form>
-      </div>
 
-      <!-- Pet Info Section -->
-      <div class="pet-info">
-        <h3>Meet Your Pet Buddy 🐾</h3>
-        <p>Here’s some info about your furry friend!</p>
-        <div class="pet-image">
-          <img src="/Images/ProfileDesign.jpg" alt="Pet Image">
+        <!-- Pet Info Section -->
+        <div class="bg-orange-50 p-6 rounded shadow">
+          <h3 class="text-lg font-bold mb-2">Meet Your Pet Buddy 🐾</h3>
+          <p class="text-gray-600 mb-4">Here’s some info about your furry friend!</p>
+          <div class="flex flex-col md:flex-row items-center gap-6">
+            <img src="/Images/ProfileDesign.jpg" alt="Pet Image" class="w-48 h-48 object-cover rounded border-4 border-orange-400">
+            <div class="space-y-2">
+              <p><strong>Name:</strong> Maximus</p>
+              <p><strong>Breed:</strong> Golden Retriever</p>
+              <p><strong>Age:</strong> 2 years</p>
+              <p><strong>Favorite Activity:</strong> Fetching tennis balls!</p>
+            </div>
+          </div>
         </div>
-        <div class="pet-details">
-          <p><strong>Name:</strong> Maximus</p>
-          <p><strong>Breed:</strong> Golden Retriever</p>
-          <p><strong>Age:</strong> 2 years</p>
-          <p><strong>Favorite Activity:</strong> Fetching tennis balls!</p>
-        </div>
+
       </div>
     </main>
+
   </div>
 </body>
 </html>
