@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost & Found - Petify</title>
+    <link rel="stylesheet" href="/profile.css/Userprof.css">
+    <link rel="stylesheet" href="/lostfound.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <h2 class="logo">PETIFY</h2>
+                <p class="sidebar-title">Navigation</p>
+                <ul class="nav-list">
+                    <li><a href="/" class="[active-class]"><span>🏠</span> Home</a></li>
+                    <li><a href="/profile" class="[active-class]"><span>👤</span> Profile</a></li>
+                    <li><a href="/shop" class="[active-class]"><span>🛒</span> Buy Pets & Products</a></li>
+                    <li><a href="/appointments" class="[active-class]"><span>📅</span> Appointments</a></li>
+                    <li><a href="/lost-found" class="[active-class]"><span>🕵️</span> Lost & Found</a></li>
+                    <li><a href="/community" class="[active-class]"><span>💬</span> Community</a></li>
+                    <li><a href="/feedback" class="[active-class]"><span>⭐</span> Rating & Feedback</a></li>
+                    <li><a href="/about" class="[active-class]"><span>📖</span> About</a></li>
+                    <li><a href="/services" class="[active-class]"><span>🛠️</span> Services</a></li>
+                    <li><a href="/contacts" class="[active-class]"><span>📞</span> Contact</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content for Lost & Found -->
+        <main class="lostfound-container">
+            <h1>Lost & Found Pets</h1>
+
+            <section class="lost-pet-form">
+                <h2>Report a Lost Pet</h2>
+                <form action="/submit-lost-pet" method="POST" class="lost-pet-form-fields">
+                    <label for="pet-name">Pet Name</label>
+                    <input type="text" id="pet-name" name="pet-name" class="styled-input" placeholder="Enter pet's name" required>
+
+                    <label for="pet-description">Description</label>
+                    <textarea id="pet-description" name="pet-description" class="styled-textarea" placeholder="Describe your pet" required></textarea>
+
+                    <label for="pet-image">Pet Image</label>
+                    <input type="file" id="pet-image" name="pet-image" class="styled-input" accept="image/*" required>
+
+                    <label for="location">Last Seen Location</label>
+                    <input type="text" id="location" name="location" class="styled-input" placeholder="Enter last seen location" required>
+
+                    <button type="submit" class="styled-button">Report Lost Pet</button>
+                </form>
+            </section>
+
+            <!-- Recent Lost & Found Posts -->
+            <section class="recent-lost-pets">
+                <h2>Recent Lost Pets</h2>
+
+                <!-- Example List of Recent Lost Pets -->
+                <div class="lost-pet-item">
+                    <img src="pet-image.jpg" alt="Lost Pet" class="lost-pet-image">
+                    <div class="lost-pet-details">
+                        <h3>Buddy</h3>
+                        <p>Lost on: April 25, 2025</p>
+                        <p><strong>Description:</strong> Golden Retriever, wearing a blue collar</p>
+                        <p><strong>Location:</strong> Central Park</p>
+                    </div>
+                </div>
+
+                <div class="lost-pet-item">
+                    <img src="pet-image.jpg" alt="Lost Pet" class="lost-pet-image">
+                    <div class="lost-pet-details">
+                        <h3>Whiskers</h3>
+                        <p>Lost on: April 27, 2025</p>
+                        <p><strong>Description:</strong> Black and white cat, very shy</p>
+                        <p><strong>Location:</strong> Maple Street</p>
+                    </div>
+                </div>
+
+                <!-- Add more lost pets dynamically -->
+            </section>
+        </main>
+    </div>
+</body>
+</html>

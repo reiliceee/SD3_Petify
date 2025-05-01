@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - Petify</title>
+    <link rel="stylesheet" href="/profile.css/Userprof.css">
+    <link rel="stylesheet" href="/community.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <h2 class="logo">PETIFY</h2>
+                <p class="sidebar-title">Navigation</p>
+                <ul class="nav-list">
+                    <li><a href="/" class="[active-class]"><span>🏠</span> Home</a></li>
+                    <li><a href="/profile" class="[active-class]"><span>👤</span> Profile</a></li>
+                    <li><a href="/shop" class="[active-class]"><span>🛒</span> Buy Pets & Products</a></li>
+                    <li><a href="/appointments" class="[active-class]"><span>📅</span> Appointments</a></li>
+                    <li><a href="/lost-found" class="[active-class]"><span>🕵️</span> Lost & Found</a></li>
+                    <li><a href="/community" class="[active-class]"><span>💬</span> Community</a></li>
+                    <li><a href="/feedback" class="[active-class]"><span>⭐</span> Rating & Feedback</a></li>
+                    <li><a href="/about" class="[active-class]"><span>📖</span> About</a></li>
+                    <li><a href="/services" class="[active-class]"><span>🛠️</span> Services</a></li>
+                    <li><a href="/contacts" class="[active-class]"><span>📞</span> Contact</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="community-container">
+            <h1>Community Discussions</h1>
+
+            <!-- New Post Form -->
+            <section class="new-post">
+                <h2>Start a Discussion</h2>
+                <form action="/submit-post" method="POST" class="new-post-form">
+                    <label for="post-title">Post Title</label>
+                    <input type="text" id="post-title" name="post-title" class="styled-input" placeholder="Enter title" required>
+
+                    <label for="post-content">Content</label>
+                    <textarea id="post-content" name="post-content" class="styled-textarea" placeholder="What would you like to discuss?" required></textarea>
+
+                    <button type="submit" class="styled-button">Post Discussion</button>
+                </form>
+            </section>
+
+            <!-- Community Threads -->
+            <section class="community-threads">
+                <h2>Popular Threads</h2>
+
+                <div class="thread-item">
+                    <div class="thread-header">
+                        <h3>Best Pet Care Tips</h3>
+                        <span class="thread-date">April 25, 2025</span>
+                    </div>
+                    <p class="thread-preview">Sharing some top pet care tips for new pet owners!</p>
+                    <button class="styled-button secondary">Join Discussion</button>
+                </div>
+
+                <div class="thread-item">
+                    <div class="thread-header">
+                        <h3>Adopt a Rescue Pet</h3>
+                        <span class="thread-date">April 24, 2025</span>
+                    </div>
+                    <p class="thread-preview">Looking for advice on adopting a rescue pet. Any tips?</p>
+                    <button class="styled-button secondary">Join Discussion</button>
+                </div>
+
+                <!-- More Threads can be added dynamically -->
+            </section>
+        </main>
+    </div>
+</body>
+</html>

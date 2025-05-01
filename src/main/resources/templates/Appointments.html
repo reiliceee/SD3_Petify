@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Appointments - PETIFY</title>
+    <link rel="stylesheet" href="/profile.css/Userprof.css"/>
+    <link rel="stylesheet" href="/appointments.css"/>
+</head>
+<body>
+    <div class="dashboard">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <h2 class="logo">PETIFY</h2>
+                <p class="sidebar-title">Navigation</p>
+                <ul class="nav-list">
+                    <li><a href="/"><span>🏠</span> Home</a></li>
+                    <li><a href="/profile"><span>👤</span> Profile</a></li>
+                    <li><a href="/shop"><span>🛒</span> Buy Pets & Products</a></li>
+                    <li><a href="/appointments" class="active"><span>📅</span> Appointments</a></li>
+                    <li><a href="/lost-found"><span>🕵️</span> Lost & Found</a></li>
+                    <li><a href="/community"><span>💬</span> Community</a></li>
+                    <li><a href="/feedback"><span>⭐</span> Rating & Feedback</a></li>
+                    <li><a href="/about"><span>📖</span> About</a></li>
+                    <li><a href="/services"><span>🛠️</span> Services</a></li>
+                    <li><a href="/contacts"><span>📞</span> Contact</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Appointment Content -->
+        <main class="appointment-container">
+            <h1>Book an Appointment</h1>
+
+            <form action="/submit-appointment" method="POST" class="appointment-form">
+                <label for="service-type">Service Type</label>
+                <select name="service-type" id="service-type" class="styled-select">
+                    <option value="check-up">Check-up</option>
+                    <option value="grooming">Grooming</option>
+                    <option value="vaccination">Vaccination</option>
+                </select>
+
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" class="styled-input"/>
+
+                <label for="time">Time</label>
+                <input type="time" id="time" name="time" class="styled-input"/>
+
+                <label for="pet-details">Pet Details</label>
+                <textarea id="pet-details" name="pet-details" class="styled-textarea" placeholder="Describe your pet's needs..."></textarea>
+
+                <div class="toggle-container">
+                    <label for="availability" class="toggle-label">Check Availability</label>
+                    <input type="checkbox" id="availability" class="toggle-input"/>
+                    <span class="toggle-slider"></span>
+                </div>
+
+                <button type="submit" class="styled-button">Book Appointment</button>
+            </form>
+
+            <!-- Messages -->
+            <div id="success-message" class="success-message" style="display: none;">
+                Appointment successfully booked! 🎉
+            </div>
+            <div id="error-message" class="error-message" style="display: none;">
+                Something went wrong. Please try again. ⚠️
+            </div>
+        </main>
+    </div>
+</body>
+</html>

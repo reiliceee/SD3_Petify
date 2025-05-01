@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Petify</title>
+    <link rel="stylesheet" href="/profile.css/PetProduct.css">
+</head>
+<body>
+    <div class="dashboard">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <h2 class="logo">PETIFY</h2>
+                <p class="sidebar-title">Navigation</p>
+                <ul class="nav-list">
+                    <li><a href="/"><span>🏠</span> Home</a></li>
+                    <li><a href="/profile"><span>👤</span> Profile</a></li>
+                    <li><a href="/shop" class="active"><span>🛒</span> Buy Pets & Products</a></li>
+                    <li><a href="/appointments"><span>📅</span> Appointments</a></li>
+                    <li><a href="/lost-found"><span>🕵️</span> Lost & Found</a></li>
+                    <li><a href="/community"><span>💬</span> Community</a></li>
+                    <li><a href="/feedback"><span>⭐</span> Rating & Feedback</a></li>
+                    <li><a href="/about"><span>📖</span> About</a></li>
+                    <li><a href="/services"><span>🛠️</span> Services</a></li>
+                    <li><a href="/contacts"><span>📞</span> Contact</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="toggle-buttons">
+                <button id="togglePets" class="active" onclick="showSection('pets')">Pets</button>
+                <button id="toggleProducts" onclick="showSection('products')">Products</button>
+            </div>
+
+            <!-- Pet Filters -->
+            <div class="category-filters" id="petFilters">
+                <button onclick="filterCategory('dogs')">Dogs</button>
+                <button onclick="filterCategory('cats')">Cats</button>
+                <button onclick="filterCategory('birds')">Birds</button>
+                <button onclick="filterCategory('hamsters')">Hamsters</button>
+            </div>
+
+            <!-- Product Filters -->
+            <div class="product-category-filters" id="productFilters" style="display:none;">
+                <button onclick="filterProductCategory('Dog')">Dog</button>
+                <button onclick="filterProductCategory('Cat')">Cat</button>
+                <button onclick="filterProductCategory('Bird')">Bird</button>
+                <button onclick="filterProductCategory('Hamster')">Hamsters</button>
+            </div>
+
+            <!-- DOG List -->
+            <!-- DOG #1-->
+            <div id="item-list">  
+                <div class="item-card" data-category="pets" data-animal="dogs">
+                    <img class="item-image" src="/Images/Pets/GoldenRetriever.jpg" alt="Golden Retriever">
+                    <div class="item-info">
+                        <h3>Golden Retriever</h3>
+                        <p> A friendly, intelligent, and loyal dog breed known for its golden coat and gentle nature. 
+                            Type: Medium-to-large, purebred dog. Origin: Scotland. 
+                            Traits: Energetic, obedient, affectionate, great with families and kids. 
+                            Care: Needs regular exercise, grooming, and social interaction. Lifespan: 10–12 years. Ideal for: Active families, therapy work, and outdoor activities.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Golden Retriever')">Buy</button>
+                            <button onclick="askCustomerService('Golden Retriever')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- DOG #2-->
+                <div id="item-list">
+                    <div class="item-card" data-category="pets" data-animal="dogs">
+                        <img class="item-image" src="/Images/Pets/LabradorRetriever.jpg" alt="Labrador Retriever">
+                        <div class="item-info">
+                            <h3>Labrador Retriever</h3>
+                            <p> : A friendly, outgoing, and highly trainable dog breed known for its loyalty and love of water. 
+                                Type: Medium-to-large, purebred dog. 
+                                Origin: Canada (Newfoundland and Labrador). 
+                                Traits: Energetic, affectionate, intelligent, great with kids and other pets. 
+                                Care: Needs daily exercise, grooming, mental stimulation, and social interaction. 
+                                Lifespan: 10–12 years. Ideal for: Active families, service work, and outdoor lifestyles.</p>
+                            <div class="item-buttons">
+                                <button onclick="buyItem('Labrador Retriever')">Buy</button>
+                                <button onclick="askCustomerService('Labrador Retriever')">Ask Customer Service</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DOG #3-->
+                <div id="item-list"> 
+                    <div class="item-card" data-category="pets" data-animal="dogs">
+                        <img class="item-image" src="/Images/Pets/ShihTzu.jpg" alt="Shih Tzu">
+                        <div class="item-info">
+                            <h3>Shih Tzu</h3>
+                            <p> A small, affectionate companion dog known for its long, flowing coat and sweet temperament. 
+                                Type: Toy breed, purebred dog. Origin: Tibet/China. 
+                                Traits: Friendly, loyal, alert, good with families and apartment living. 
+                                Care: Requires daily grooming, regular walks, and social interaction. Lifespan: 10–16 years. Ideal for: Indoor living, small homes, and those seeking a gentle lap dog.</p>
+                            <div class="item-buttons">
+                                <button onclick="buyItem('Shih Tzu')">Buy</button>
+                                <button onclick="askCustomerService('Shih Tzu')">Ask Customer Service</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DOG #4-->
+                <div id="item-list">
+                    <div class="item-card" data-category="pets" data-animal="dogs">
+                        <img class="item-image" src="/Images/Pets/Dachshund.jpg" alt="Dachshund">
+                        <div class="item-info">
+                            <h3>Dachshund </h3>
+                            <p> A distinctive, long-bodied small dog known for its bold personality and strong hunting instincts. 
+                                Type: Small breed, purebred dog. Origin: Germany. 
+                                Traits: Curious, brave, playful, can be stubborn, good watchdog. 
+                                Care: Needs regular walks, weight management (to protect spine), and moderate grooming. 
+                                Lifespan: 12–16 years. Ideal for: Singles, small families, and those looking for a loyal, spirited pet.</p>
+                            <div class="item-buttons">
+                                <button onclick="buyItem('Dachshund')">Buy</button>
+                                <button onclick="askCustomerService('Dachshund')">Ask Customer Service</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DOG #5-->
+                <div id="item-list">
+                    <div class="item-card" data-category="pets" data-animal="dogs">
+                        <img class="item-image" src="/Images/Pets/Poodle.jpg" alt="Poodle">
+                        <div class="item-info">
+                            <h3>Poodle</h3>
+                            <p>  An elegant, highly intelligent dog breed known for its curly coat and exceptional trainability. 
+                                Type: Purebred, available in Standard, Miniature, and Toy sizes. 
+                                Origin: Germany/France. 
+                                Traits: Smart, active, friendly, hypoallergenic coat (low-shedding), excels in obedience. 
+                                Care: Requires regular grooming, mental stimulation, and daily exercise. Lifespan: 12–15 years. 
+                                Ideal for: Allergy sufferers, families, and those looking for a versatile, trainable companion.</p>
+                            <div class="item-buttons">
+                                <button onclick="buyItem('Poodle')">Buy</button>
+                                <button onclick="askCustomerService('Poodle')">Ask Customer Service</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CAT List -->
+                <!-- CAT #1-->
+                <div class="item-card" data-category="pets" data-animal="cats">
+                    <img class="item-image" src="/Images/Pets/PersianCat.jpg" alt="Persian Cat">
+                    <div class="item-info">
+                        <h3>Persian Cat</h3>
+                        <p>A long-haired, flat-faced breed known for its calm temperament and luxurious coat. 
+                            Type: Domestic, purebred cat. Origin: Iran (Persia). 
+                            Traits: Quiet, affectionate, low-energy. 
+                            Care: Requires daily grooming and regular eye cleaning. 
+                            Lifespan: 12–17 years. 
+                            Ideal for: Indoor living and calm households.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Persian Cat')">Buy</button>
+                            <button onclick="askCustomerService('Persian Cat')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CAT #2-->
+                <div class="item-card" data-category="pets" data-animal="cats">
+                    <img class="item-image" src="/Images/Pets/Siamese.jpg" alt="Siamese Cat">
+                    <div class="item-info">
+                        <h3>Siamese Cat</h3>
+                        <p>A sleek, vocal, and affectionate breed known for its striking blue eyes and short coat with color points. 
+                            Type: Domestic, purebred cat. Origin: Thailand (formerly Siam). 
+                            Traits: Social, talkative, playful, and intelligent. Often bonds closely with owners and enjoys interactive play. 
+                            Care: Low grooming needs, but requires attention and mental stimulation. 
+                            Lifespan: 12–20 years. 
+                            Ideal for: Families, individuals who can provide companionship and engagement.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Siamese Cat')">Buy</button>
+                            <button onclick="askCustomerService('Siamese Cat')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- CAT #3-->
+                <div class="item-card" data-category="pets" data-animal="cats">
+                    <img class="item-image" src="/Images/Pets/Sphynx.jpg" alt="Sphynx Cat">
+                    <div class="item-info">
+                        <h3>Sphynx Cat</h3>
+                        <p>A hairless, affectionate, and curious cat breed known for its wrinkled skin and outgoing personality. 
+                            Type: Domestic, purebred cat. Origin: Canada. 
+                            Traits: Energetic, social, intelligent, loves human attention, and often seeks warmth. 
+                            Care: Requires regular bathing (to remove skin oils), ear cleaning, and sun protection. 
+                            Lifespan: 9–15 years. 
+                            Ideal for: People with cat allergies (less dander), those seeking a playful, interactive companion.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Sphynx Cat')">Buy</button>
+                            <button onclick="askCustomerService('Sphynx Cat')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CAT #4-->
+                <div class="item-card" data-category="pets" data-animal="cats">
+                    <img class="item-image" src="/Images/Pets/BritishShorthair.jpg" alt="British Shorthair Cat">
+                    <div class="item-info">
+                        <h3>British Shorthair Cat</h3>
+                        <p>A sturdy, calm, and affectionate cat breed known for its round face, dense plush coat, and easygoing nature. 
+                            Type: Domestic, purebred cat. Origin: United Kingdom. 
+                            Traits: Quiet, loyal, independent but loving, good with families and other pets. 
+                            Care: Weekly brushing, balanced diet, and moderate playtime. 
+                            Lifespan: 12–20 years. 
+                            Ideal for: Apartment living, families, and those wanting a low-maintenance, gentle companion.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('British Shorthair Cat')">Buy</button>
+                            <button onclick="askCustomerService('British Shorthair Cat')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CAT #5-->
+                <div class="item-card" data-category="pets" data-animal="cats">
+                    <img class="item-image" src="/Images/Pets/Abyssinian.jpg" alt="Abyssinian Cat">
+                    <div class="item-info">
+                        <h3>Abyssinian Cat</h3>
+                        <p> A sleek, active, and intelligent cat breed known for its ticked coat and playful, curious nature. 
+                            Type: Domestic, purebred cat. 
+                            Origin: Ethiopia (formerly Abyssinia), developed further in the UK. 
+                            Traits: Energetic, social, affectionate, highly interactive, loves climbing and exploring. 
+                            Care: Low grooming needs, but requires daily play and stimulation. 
+                            Lifespan: 12–15 years. 
+                            Ideal for: Active households, cat-savvy owners, and those seeking an engaging, lively companion.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Abyssinian Cat')">Buy</button>
+                            <button onclick="askCustomerService('Abyssinian Cat')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- BIRD List -->
+                <!-- BIRD #1-->
+                <div class="item-card" data-category="pets" data-animal="birds">
+                    <img class="item-image" src="/Images/Pets/AfricanGreyParrot.jpg" alt="AfricanGreyParrot">
+                    <div class="item-info">
+                        <h3>African Grey Parrot</h3>
+                        <p> A highly intelligent, medium-sized parrot known for its exceptional talking and mimicking abilities. 
+                            Type: Companion bird. Origin: Central and West Africa. Traits: Intelligent, social, sensitive, long memory. 
+                            Care: Needs mental stimulation, daily interaction, and a spacious cage. Lifespan: 40–60 years (sometimes longer). 
+                            Ideal for: Experienced bird owners who can provide long-term care and attention.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('AfricanGreyParrot')">Buy</button>
+                            <button onclick="askCustomerService('AfricanGreyParrot')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- BIRD #2-->
+                <div class="item-card" data-category="pets" data-animal="birds">
+                    <img class="item-image" src="/Images/Pets/MacawParrot.jpg" alt="Macaw Parrot">
+                    <div class="item-info">
+                        <h3>Macaw Parrot</h3>
+                        <p>  A large, colorful parrot known for its striking plumage, intelligence, and strong personality. 
+                            Type: Companion bird. Origin: Central and South America. Traits: Social, loud, intelligent, playful, strong beak. 
+                            Care: Needs a very large cage, daily interaction, toys for mental stimulation, and a varied diet. 
+                            Lifespan: 50–80 years (some up to 100). Ideal for: Experienced bird owners with space, time, and commitment.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Macaw Parrot')">Buy</button>
+                            <button onclick="askCustomerService('Macaw Parrot')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BIRD #3-->
+                <div class="item-card" data-category="pets" data-animal="birds">
+                    <img class="item-image" src="/Images/Pets/CockatielParrot.jpg" alt="CockatielParrot">
+                    <div class="item-info">
+                        <h3>Cockatiel Parrot</h3>
+                        <p> A small, friendly parrot known for its crest, whistling ability, and affectionate nature. 
+                            Type: Companion bird. Origin: Australia. Traits: Social, gentle, playful, easily tamed. 
+                            Care: Needs daily interaction, a medium-sized cage, toys, and a balanced diet. 
+                            Lifespan: 15–25 years. Ideal for: Beginners, families, and those in smaller living spaces.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('CockatielParrot')">Buy</button>
+                            <button onclick="askCustomerService('CockatielParrot')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- BIRD #4-->
+                <div class="item-card" data-category="pets" data-animal="birds">
+                    <img class="item-image" src="/Images/Pets/BudgerigarParrot.jpg" alt="Budgerigar Parrot">
+                    <div class="item-info">
+                        <h3>Budgerigar Parrot (Budgie)</h3>
+                        <p> A small, cheerful parrot known for its bright colors, chirping, and ability to mimic speech. 
+                            Type: Companion bird. Origin: Australia. Traits: Friendly, social, active, easy to train. 
+                            Care: Requires daily interaction, a small-to-medium cage, toys, and a seed/pellet-based diet with fresh veggies. 
+                            Lifespan: 5–10 years (can reach 15 with excellent care). 
+                            Ideal for: Beginners, children, and small households.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Budgerigar Parrot')">Buy</button>
+                            <button onclick="askCustomerService('Budgerigar Parrot')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- BIRD #5-->
+                <div class="item-card" data-category="pets" data-animal="birds">
+                    <img class="item-image" src="/Images/Pets/PH_Hanging_Parrot.jpg" alt="Philippine Hanging Parrot">
+                    <div class="item-info">
+                        <h3>Philippine Hanging Parrot (Colasisi)</h3>
+                        <p> A small, colorful parrot known for its hanging roosting posture and native presence in the Philippines. 
+                            Type: Wild/companion bird. Origin: Philippines. 
+                            Traits: Quiet, shy, active, green plumage with red or orange markings (varies by island). 
+                            Care: Requires a secure cage, fresh fruits, nectar, and interaction if kept as a pet (though wild populations are protected). 
+                            Lifespan: Around 10–15 years in captivity. 
+                            Ideal for: Experienced bird enthusiasts in regions where legal and ethical ownership is permitted.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Philippine Hanging Parrot')">Buy</button>
+                            <button onclick="askCustomerService('Philippine Hanging Parrot')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HAMSTER LIST-->
+                <!-- HAMSTER #1-->
+                <div class="item-card" data-category="pets" data-animal="hamsters">
+                    <img class="item-image" src="/Images/Pets/SyrianHamster.jpg" alt="Syrian Hamster">
+                    <div class="item-info">
+                        <h3>Syrian Hamster (Golden Hamster)</h3>
+                        <p> A solitary, nocturnal rodent known for its golden coat, cheek pouches, and ease of care. 
+                            Type: Small pet mammal. 
+                            Origin: Syria. 
+                            Traits: Friendly when handled gently, prefers living alone, active at night, good for beginners. 
+                            Care: Needs a spacious cage, exercise wheel, clean bedding, and regular handling. 
+                            Lifespan: 2–3 years. 
+                            Ideal for: Kids (with supervision), beginners, and small living spaces.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Syrian Hamster')">Buy</button>
+                            <button onclick="askCustomerService('Syrian Hamster')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HAMSTER #2-->
+                <div class="item-card" data-category="pets" data-animal="hamsters">
+                    <img class="item-image" src="/Images/Pets/DwarfCampbellRussianHamster.jpg" alt="Dwarf Campbell Russian Hamster">
+                    <div class="item-info">
+                        <h3>Dwarf Campbell Russian Hamster</h3>
+                        <p> A small, fast, and social hamster species known for its compact size and adaptability.
+                            Type: Small pet mammal.
+                            Origin: Central Asia (Russia, China, Kazakhstan, Mongolia).
+                            Traits: Active, curious, can live in pairs or small groups if introduced early, more prone to nipping than Syrians.
+                            Care: Requires a secure cage, enrichment items, dust-free bedding, and careful handling.
+                            Lifespan: 1.5–2.5 years.
+                            Ideal for: Experienced hamster keepers or gentle handlers who understand dwarf hamster behavior.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Dwarf Campbell Russian Hamster')">Buy</button>
+                            <button onclick="askCustomerService('Dwarf Campbell Russian Hamster')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HAMSTER #3-->
+                <div class="item-card" data-category="pets" data-animal="hamsters">
+                    <img class="item-image" src="/Images/Pets/DwarfWinterWhiteRussianHamster.jpg" alt="Dwarf Winter White Russian Hamster">
+                    <div class="item-info">
+                        <h3>Dwarf Winter White Russian Hamster</h3>
+                        <p> A small, round-bodied hamster known for its seasonal coat color change and gentle temperament.
+                            Type: Small pet mammal.
+                            Origin: Siberia, Kazakhstan, Mongolia.
+                            Traits: Calm, social (can live in pairs if raised together), may turn white in winter under natural light conditions, easier to tame than other dwarf types.
+                            Care: Needs a secure habitat, soft bedding, an exercise wheel, and daily enrichment.
+                            Lifespan: 1.5–2 years.
+                            Ideal for: Beginners and those looking for a social, relatively tame dwarf hamster.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Dwarf Winter White Russian Hamster')">Buy</button>
+                            <button onclick="askCustomerService('Dwarf Winter White Russian Hamster')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HAMSTER #4-->
+                <div class="item-card" data-category="pets" data-animal="hamsters">
+                    <img class="item-image" src="/Images/Pets/RoborovskiHamster.jpg" alt="Roborovski Hamster">
+                    <div class="item-info">
+                        <h3>Roborovski Hamster</h3>
+                        <p> The smallest and fastest of all pet hamsters, known for its agility, shyness, and distinctive white eyebrows.
+                            Type: Small pet mammal.
+                            Origin: Deserts of Central Asia (Mongolia, China, Russia).
+                            Traits: Very active, less prone to biting, not fond of handling, better for watching than cuddling, can live in pairs if introduced young.
+                            Care: Needs a secure, spacious cage with deep bedding, tunnels, and a solid-surface wheel.
+                            Lifespan: 2–3.5 years.
+                            Ideal for: Patient owners who enjoy observing rather than handling pets, and older kids or adults.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Roborovski Hamster')">Buy</button>
+                            <button onclick="askCustomerService('Roborovski Hamster')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- HAMSTER #5-->
+                <div class="item-card" data-category="pets" data-animal="hamsters">
+                    <img class="item-image" src="/Images/Pets/ChineseHamster.jpg" alt="Chinese Hamster">
+                    <div class="item-info">
+                        <h3>Chinese Hamster</h3>
+                        <p> A small, slender-bodied hamster with a long tail compared to other species, known for its quiet nature and strong climbing ability.
+                            Type: Small pet mammal.
+                            Origin: Northern China and Mongolia.
+                            Traits: Calm, shy at first but can become tame, better kept alone due to territorial behavior, enjoys climbing and hiding.
+                            Care: Needs a tall cage with climbing structures, soft bedding, hiding spots, and regular gentle handling.
+                            Lifespan: 2–3 years.
+                            Ideal for: Older children and adults looking for a low-maintenance but unique and interactive pet.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Chinese Hamster')">Buy</button>
+                            <button onclick="askCustomerService('Chinese Hamster')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example Product -->
+
+                <!-- Cat Food Product -->
+                <!-- CatFood #1 -->
+                <div class="item-card" data-category="products" data-product-category="Cat">
+                    <img class="item-image" src="/Images/Products/FriskiesFarm.webp" alt="FriskiesFarm">
+                    <div class="item-info">
+                        <h3>FriskiesFarmFavorite</h3>
+                        <p>Friskies Farm Favorites Cat Food is a nutritious and flavorful line made with natural, 
+                            farm-raised ingredients like chicken, turkey, salmon, whitefish, carrots, and spinach—offering both dry kibble and wet food options. 
+                            Flavors include Chicken & Carrots, Salmon & Spinach, Turkey & Carrots, and Whitefish & Spinach, available in pate and meaty bits with gravy. Key benefits include high-quality protein for strong muscles, antioxidants for immune health, essential fatty acids for a shiny coat, and 100% complete and balanced nutrition without artificial colors or preservatives. Suitable for cats of all life stages and proudly made in Purina-owned USA facilities.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('FriskiesFarm')">Buy</button>
+                            <button onclick="askCustomerService('FriskiesFarm')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- CatFood #2 -->
+                <div class="item-card" data-category="products" data-product-category="Cat">
+                    <img class="item-image" src="/Images/Products/RoyalCanin.jpg" alt="Royal Canin Feline Health Nutrition">
+                    <div class="item-info">
+                        <h3>Royal Canin Feline Health Nutrition</h3>
+                        <p>A line of cat food tailored to meet the specific nutritional needs of cats at different life stages and lifestyles, with both dry and wet food options.
+                            Type: Specialized cat food
+                            Formulas: Available in flavors like Chicken, Turkey, Salmon, and more.
+                            Ingredients: High-quality proteins, fiber for digestion, antioxidants for immune support, and omega fatty acids for skin and coat health.
+                            Benefits: Supports digestive health, immune system, healthy growth, weight management, and urinary health.
+                            Care: Provides complete and balanced nutrition for kittens, adults, and senior cats, with options for indoor and sensitive cats.
+                            Ideal for: Cats of all ages and lifestyles, particularly those with specific health needs or dietary preferences.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Royal Canin Feline Health Nutrition')">Buy</button>
+                            <button onclick="askCustomerService('Royal Canin Feline Health Nutrition')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CatFood #3 -->
+                <div class="item-card" data-category="products" data-product-category="Cat">
+                    <img class="item-image" src="/Images/Products/WELLnessCORE.jpg" alt="Wellness CORE Grain-Free Wet Cat Food">
+                    <div class="item-info">
+                        <h3>Wellness CORE Grain-Free Wet Cat Food</h3>
+                        <p>A high-protein, grain-free wet cat food line crafted with real meat and wholesome ingredients to support your cat's overall health.​
+                            
+                            Type: Wet cat food (pâté and hearty cuts)
+                            Flavors: Chicken & Chicken Liver, Salmon, Whitefish & Herring, Turkey & Duck, among others
+                            Key Ingredients: Deboned chicken, turkey, chicken liver, chicken broth, turkey broth, pea protein, ground flaxseed, cranberries, and chicory root extract
+                            Benefits: Supports lean body mass and muscle tone, promotes healthy hydration, enhances skin and coat health, and aids in digestive health
+                            Ideal for: Adult cats seeking a high-protein, grain-free diet with natural ingredients</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Wellness CORE Grain-Free Wet Cat Food')">Buy</button>
+                            <button onclick="askCustomerService('Wellness CORE Grain-Free Wet Cat Food')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DOGFOOD LIST -->
+                <!-- DogFood #1 -->
+                <div class="item-card" data-category="products" data-product-category="Dog">
+                    <img class="item-image" src="/Images/Products/PedigreeChoppedGround.jpg" alt="Pedigree Chopped Ground Dinner Canned Dog Food">
+                    <div class="item-info">
+                        <h3>Pedigree Chopped Ground Dinner Canned Dog Food</h3>
+                        <p>A soft, wet dog food line offering a variety of flavors to satisfy your dog's taste preferences, providing balanced nutrition for adult dogs.​ 
+                            Type: Canned wet dog food
+                            Flavors: Beef, Chicken, Chicken & Beef, Chicken & Rice, Combo with Chicken, Beef & Liver, Filet Mignon & Bacon, among others.
+                            Key Ingredients: Real meat (chicken, beef), meat by-products, brewers rice, carob bean gum, guar gum, vitamins and minerals.
+                            Benefits: Supports healthy skin and coat, provides balanced nutrition, highly digestible, can be served alone or mixed with dry food.
+                            Ideal for: Adult dogs of all sizes seeking a flavorful and nutritious meal.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Pedigree Chopped Ground Dinner Canned Dog Food')">Buy</button>
+                            <button onclick="askCustomerService('Pedigree Chopped Ground Dinner Canned Dog Food')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DogFood #2 -->
+                <div class="item-card" data-category="products" data-product-category="Dog">
+                    <img class="item-image" src="/Images/Products/Hill_Science_DietCanned_DogFood.jpg" alt="Hill's Science Diet Adult Sensitive Stomach & Skin Canned Dog Food">
+                    <div class="item-info">
+                        <h3>Hill's Science Diet Adult Sensitive Stomach & Skin Canned Dog Food</h3>
+                        <p>A premium wet dog food formulated to support digestive health and nourish skin for adult dogs with sensitivities.​
+                            Type: Wet dog food (canned)
+                            Flavors: Chicken & Vegetable Stew, Tender Turkey & Rice Stew, Salmon & Vegetable Entrée
+                            Key Ingredients: Chicken broth, chicken, turkey giblets, carrots, rice, green peas, flaxseed, omega-6 fatty acids, vitamin E, prebiotic fiber
+                            Benefits: Supports digestive health, nourishes skin and promotes a lustrous coat, easy-to-digest ingredients for healthy digestion, and easier stool pick-up
+                            Ideal for: Adult dogs 1–6 years old, including those with food sensitivities.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Hills Science Diet Adult Sensitive Stomach & Skin Canned Dog Food')">Buy</button>
+                            <button onclick="askCustomerService('Hills Science Diet Adult Sensitive Stomach & Skin Canned Dog Food')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DogFood #3 -->
+                <div class="item-card" data-category="products" data-product-category="Dog">
+                    <img class="item-image" src="/Images/Products/BlueBuffalo_Canned_DogFood.jpg" alt="Blue Buffalo Homestyle Recipe Canned Dog Food">
+                    <div class="item-info">
+                        <h3>Blue Buffalo Homestyle Recipe Canned Dog Food</h3>
+                        <p> A premium wet dog food line crafted with real meat and wholesome ingredients to provide balanced nutrition for adult dogs.​
+                            Type: Wet dog food (canned)
+                            Flavors: Chicken, Beef, Lamb, Turkey, Fish & Sweet Potato, and more.
+                            Key Ingredients: Deboned chicken, chicken liver, carrots, peas, sweet potatoes, brown rice, blueberries, cranberries, flaxseed.
+                            Benefits: Supports lean muscle development, promotes healthy digestion, nourishes skin and coat, and provides essential vitamins and minerals.
+                            Ideal for: Adult dogs seeking a high-quality, natural diet.​</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Blue Buffalo Homestyle Recipe Canned Dog Food')">Buy</button>
+                            <button onclick="askCustomerService('Blue Buffalo Homestyle Recipe Canned Dog Food')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- BIRDFOOD LIST -->
+                <!-- BirdFood #1 -->
+                <div class="item-card" data-category="products" data-product-category="Bird">
+                    <img class="item-image" src="/Images/Products/ZuPreem_FruitBlend.jpg" alt="ZuPreem FruitBlend">
+                    <div class="item-info">
+                        <h3>ZuPreem FruitBlend</h3>
+                        <p> A colorful, fruit-flavored pellet diet for medium to large parrots, made with real fruit and essential nutrients.
+                            Type: Daily pellet food
+                            Flavors: Banana, Orange, Apple, Grape
+                            Benefits: Supports balanced nutrition, promotes healthy digestion, and encourages foraging.
+                            Ideal for: Conures, African Greys, Amazons, Eclectus, and similar parrots.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('ZuPreem FruitBlend')">Buy</button>
+                            <button onclick="askCustomerService('ZuPreem FruitBlend')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BirdFood #2 -->
+                <div class="item-card" data-category="products" data-product-category="Bird">
+                    <img class="item-image" src="/Images/Products/Lafeber_Nutri-Berries.jpg" alt="Lafeber Nutri-Berries">
+                    <div class="item-info">
+                        <h3>Lafeber Nutri-Berries</h3>
+                        <p>A nutritionally complete, foraging-friendly bird food combining the benefits of pellets with the appeal of seeds, designed to support the health and well-being of parrots.​
+                            Type: Foraging bird food
+                            Flavors: Tropical Fruit, Sunny Orchard, El Paso, Garden Veggie, Popcorn
+                            Key Ingredients: Hulled canary grass seed, cracked corn, safflower, peanuts, soybean meal, and other natural ingredients
+                            Benefits: Supports balanced nutrition, encourages natural foraging behavior, and provides a variety of textures and flavors to stimulate parrots
+                            Ideal for: Medium to large parrots, including Conures, African Greys, Amazons, Eclectus, and Small Cockatoos</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Lafeber Nutri-Berries')">Buy</button>
+                            <button onclick="askCustomerService('Lafeber Nutri-Berries')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- BirdFood #3 -->
+                <div class="item-card" data-category="products" data-product-category="Bird">
+                    <img class="item-image" src="/Images/Products/Harrison_Organic_BirdFood.jpg" alt="Harrison's Organic Bird Food">
+                    <div class="item-info">
+                        <h3>Harrison's Organic Bird Food</h3>
+                        <p>A certified organic, non-GMO, and soy-free pellet diet formulated by avian veterinarians to provide complete nutrition for pet birds.​
+                            Type: Organic extruded pellets
+                            Formulas: High Potency (for birds under 1 year, breeding, molting, or ill) and Adult Lifetime (for healthy adult birds)
+                            Key Ingredients: Organic whole grains (wheat, barley, peas), sesame meal, flaxseed, kelp, and other organic ingredients
+                            Benefits: Supports optimal health, feather condition, and energy levels; free from artificial additives and fillers
+                            Ideal for: Medium to large parrots, including African Greys, Amazons, Eclectus, and Cockatoos​
+                            
+                            </p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Harrisons Organic Bird Food')">Buy</button>
+                            <button onclick="askCustomerService('Harrisons Organic Bird Food')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!--  HAMSTER FOOD LIST -->
+                <!-- HamsterFood #1 -->
+                <div class="item-card" data-category="products" data-product-category="Hamster">
+                    <img class="item-image" src="/Images/Products/OxbowEssentials_HamsterFood.jpg" alt="Oxbow Essentials Hamster & Gerbil Food">
+                    <div class="item-info">
+                        <h3>Oxbow Essentials Hamster & Gerbil Food</h3>
+                        <p>A veterinarian-formulated, pellet-based diet designed to meet the nutritional needs of hamsters and gerbils, promoting health and well-being.​
+                            Type: Pelleted small animal food
+                            Key Ingredients: Timothy hay, pearled barley, oat groats, canola meal, millet, flaxseed, brewer’s yeast, vitamins A, D3, E, and B12
+                            Nutritional Analysis: 15% crude protein, 4.5% crude fat, 10–15% crude fiber
+                            Benefits: Supports digestive health, immune system, and overall wellness; encourages natural foraging behavior; free from artificial additives and preservatives
+                            Feeding Guidelines: 1/8 cup daily for small hamsters; 1/3 cup for larger hamsters and gerbils
+                            Ideal for: All hamster and gerbil species, including Syrian, Roborovski, Russian, and Campbell dwarves</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Oxbow Essentials Hamster & Gerbil Food')">Buy</button>
+                            <button onclick="askCustomerService('Oxbow Essentials Hamster & Gerbil Food')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HamsterFood #2 -->
+                <div class="item-card" data-category="products" data-product-category="Hamster">
+                    <img class="item-image" src="/Images/Products/Kaytee_Forti_Diet_HamsterFood.jpg" alt="Kaytee Forti-Diet Pro Health Hamster Food">
+                    <div class="item-info">
+                        <h3>Kaytee Forti-Diet Pro Health Hamster Food</h3>
+                        <p> A nutritionally complete pellet diet with prebiotics and probiotics to support digestive health and overall well-being.
+                            Type: Pelleted small animal food
+                            Key Ingredients: Corn, wheat, sunflower seeds, millet, flaxseed, alfalfa meal
+                            Benefits: Supports digestive health, promotes dental health, and provides balanced nutrition
+                            Ideal for: Hamsters and gerbils of all life stages</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Kaytee Forti-Diet Pro Health Hamster Food')">Buy</button>
+                            <button onclick="askCustomerService('Kaytee Forti-Diet Pro Health Hamster Food')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HamsterFood #3 -->
+                <div class="item-card" data-category="products" data-product-category="Hamster">
+                    <img class="item-image" src="/Images/Products/HigginsSunburst_HamsterFood.jpg" alt="Higgins Sunburst Hamster Food">
+                    <div class="item-info">
+                        <h3>Higgins Sunburst Hamster Food</h3>
+                        <p>A premium, natural food mix combining fruits, seeds, grains, nuts, and legumes, fortified with essential nutrients to support your pet's health.​
+                            Type: Gourmet food mix
+                            Key Ingredients: White millet, oats, sunflower seeds, peanuts, dried fruits (raisins, apples, papaya, pineapple), flaxseed, pumpkin seeds, and protected probiotics.
+                            Benefits: Supports digestive health with probiotics, provides essential omega-3 fatty acids, and contains no artificial colors, flavors, or preservatives.
+                            Ideal for: All hamster and gerbil species, including Syrian, dwarf, and Roborovski hamsters, as well as gerbils.</p>
+                        <div class="item-buttons">
+                            <button onclick="buyItem('Higgins Sunburst Hamster Food')">Buy</button>
+                            <button onclick="askCustomerService('Higgins Sunburst Hamster Food')">Ask Customer Service</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            
+
+
+
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        function showSection(type) {
+            const petBtn = document.getElementById('togglePets');
+            const productBtn = document.getElementById('toggleProducts');
+            const petFilters = document.getElementById('petFilters');
+            const productFilters = document.getElementById('productFilters');
+
+            petBtn.classList.remove('active');
+            productBtn.classList.remove('active');
+
+            document.querySelectorAll('.item-card').forEach(card => {
+                card.style.display = card.dataset.category === type ? 'flex' : 'none';
+            });
+
+            if (type === 'pets') {
+                petBtn.classList.add('active');
+                petFilters.style.display = 'flex';
+                productFilters.style.display = 'none';
+            } else {
+                productBtn.classList.add('active');
+                productFilters.style.display = 'flex';
+                petFilters.style.display = 'none';
+            }
+        }
+
+        function filterCategory(animalType) {
+            document.querySelectorAll('.item-card').forEach(card => {
+                const isPet = card.dataset.category === 'pets';
+                const match = card.dataset.animal === animalType;
+                card.style.display = isPet && match ? 'flex' : 'none';
+            });
+        }
+
+        function filterProductCategory(productType) {
+            document.querySelectorAll('.item-card').forEach(card => {
+                const isProduct = card.dataset.category === 'products';
+                const match = card.dataset.productCategory === productType;
+                card.style.display = isProduct && match ? 'flex' : 'none';
+            });
+        }
+
+        function buyItem(itemName) {
+            alert(`You are buying: ${itemName}`);
+        }
+
+        function askCustomerService(itemName) {
+    window.location.href = `/customerservice?item=${encodeURIComponent(itemName)}`;
+        }
+
+    
+
+        // Show pets by default
+        window.onload = () => showSection('pets');
+    </script>
+</body>
+</html>
