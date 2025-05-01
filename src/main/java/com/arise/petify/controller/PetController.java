@@ -82,6 +82,16 @@ public class PetController {
     public String Adminprofile() {
         return "profile"; // Userprofile.html
     }
+    
+    @GetMapping("/register")
+    public String registerPage() {
+    return "register"; // This points to register.html inside /templates
+     }
+
+     @GetMapping("/login")
+     public String loginPage() {
+         return "login"; // This points to login.html inside /templates
+     }
 
 
 }
