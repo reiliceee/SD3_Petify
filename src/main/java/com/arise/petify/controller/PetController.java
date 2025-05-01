@@ -22,7 +22,7 @@ public class PetController {
     }
 
 
-    @GetMapping("/homepage")
+    @GetMapping("/home")
     public String homePage() {
         return "Homepage"; // This points to Homepage.html inside /templates
     }
