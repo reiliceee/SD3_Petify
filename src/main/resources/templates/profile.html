@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Account Settings - Petify</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+</head>
+<body class="bg-orange-50 font-sans" style="font-family: 'Fredoka', sans-serif;">
+
+<div class="flex min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-white shadow-lg flex-shrink-0">
+    <div class="p-6 border-b">
+      <h2 class="text-2xl font-bold text-orange-500">PETIFY</h2>
+      <p class="text-gray-500 mt-2">Admin tools</p>
+    </div>
+    <nav class="p-6 space-y-6 text-gray-700">
+      <ul class="space-y-2">
+        <li> <a href="/overview" class="flex items-center gap-2 hover:text-orange-500"><span>🏠</span> Overview</a></li>
+        <li><a href="#" class="flex items-center gap-2 hover:text-orange-500"><span>📦</span> Products</a></li>
+        <li><a href="#" class="flex items-center gap-2 hover:text-orange-500"><span>📅</span> Schedules</a></li>
+        <li><a href="#" class="flex items-center gap-2 hover:text-orange-500"><span>💸</span> Payouts</a></li>
+        <li><a href="#" class="flex items-center gap-2 hover:text-orange-500"><span>📊</span> Statement</a></li>
+        <li><a href="#" class="flex items-center gap-2 font-semibold text-orange-600"><span>⚙️</span> Settings</a></li>
+      </ul>
+      <p class="text-gray-500 mt-4">Insights</p>
+      <ul class="space-y-2">
+        <li><a href="/inbox" class="flex items-center gap-2 hover:text-orange-500"><span>📥</span> Inbox</a></li>
+        <li><a href="#" class="flex items-center gap-2 hover:text-orange-500"><span>🔔</span> Notifications</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-10">
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8">
+      <div class="mb-8">
+        <h2 class="text-2xl font-bold text-orange-500 mb-4">Account Settings</h2>
+        <div class="flex flex-wrap gap-3">
+          <button class="px-4 py-2 rounded bg-orange-500 text-white font-semibold">Profile</button>
+          <button class="px-4 py-2 rounded bg-gray-100 text-gray-700 hover:bg-gray-200">Password</button>
+          <button class="px-4 py-2 rounded bg-gray-100 text-gray-700 hover:bg-gray-200">Email</button>
+          <button class="px-4 py-2 rounded bg-gray-100 text-gray-700 hover:bg-gray-200">Notification</button>
+          <button class="px-4 py-2 rounded bg-gray-100 text-gray-700 hover:bg-gray-200">Settings</button>
+        </div>
+      </div>
+
+      <!-- Avatar Section -->
+      <div class="flex items-center space-x-6 mb-8">
+        <img src="/profile.jpg" alt="Avatar" class="w-24 h-24 rounded-full object-cover border-4 border-orange-500 shadow" />
+        <div class="space-y-2">
+          <label for="upload" class="inline-block cursor-pointer bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition">
+            Upload New
+          </label>
+          <input type="file" id="upload" hidden />
+          <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition">Delete Avatar</button>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <form class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="text" placeholder="Your Full Name" value="LEBRON JAMES" class="p-3 border rounded w-full" />
+          <input type="text" placeholder="Role" value="LAKERS FORWARD" class="p-3 border rounded w-full" />
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="text" placeholder="Location" value="CIT" class="p-3 border rounded w-full" />
+          <input type="text" placeholder="Shopname" value="Lenovo" class="p-3 border rounded w-full" />
+        </div>
+        <textarea rows="5" class="w-full p-3 border rounded">Lead Visual Designer at @Lenovo
+Email: dubub@writetome.net</textarea>
+        <div class="text-right">
+          <button type="submit" class="bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600 transition">
+            Update Profile
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+</div>
+
+</body>
+</html>

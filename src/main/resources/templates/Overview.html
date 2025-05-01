@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Overview - PETIFY</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800 font-[Inter] min-h-screen p-6">
+
+  <div class="max-w-7xl mx-auto space-y-8">
+
+    <!-- Page Title -->
+    <h1 class="text-3xl font-bold text-orange-500">PETIFY Admin Overview</h1>
+
+    <!-- STAT CARDS -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div class="bg-white shadow rounded-lg p-4 text-center">
+        <div class="text-2xl">🐶</div>
+        <p class="text-sm text-gray-500">Total Pets</p>
+        <h2 class="text-xl font-semibold">120</h2>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center">
+        <div class="text-2xl">🛒</div>
+        <p class="text-sm text-gray-500">Listed Products</p>
+        <h2 class="text-xl font-semibold">540</h2>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center">
+        <div class="text-2xl">📅</div>
+        <p class="text-sm text-gray-500">Today's Schedules</p>
+        <h2 class="text-xl font-semibold">8</h2>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center">
+        <div class="text-2xl">💸</div>
+        <p class="text-sm text-gray-500">Pending Payouts</p>
+        <h2 class="text-xl font-semibold">₱15,200</h2>
+      </div>
+      <div class="bg-white shadow rounded-lg p-4 text-center">
+        <div class="text-2xl">📊</div>
+        <p class="text-sm text-gray-500">Monthly Revenue</p>
+        <h2 class="text-xl font-semibold">₱102,000</h2>
+      </div>
+    </div>
+
+    <!-- MAIN SECTION -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Recent Activity -->
+      <div class="bg-white shadow rounded-lg p-6">
+        <h3 class="text-lg font-semibold mb-4">📢 Recent Activity</h3>
+        <ul class="list-disc list-inside space-y-2 text-sm">
+          <li>New seller "Paws & More" registered</li>
+          <li>Product "Organic Dog Food" listed</li>
+          <li>₱2,000 payout processed to user123</li>
+        </ul>
+      </div>
+
+      <!-- Appointments -->
+      <div class="bg-white shadow rounded-lg p-6 flex flex-col justify-between">
+        <div>
+          <h3 class="text-lg font-semibold mb-4">📅 Upcoming Appointments</h3>
+          <ul class="list-disc list-inside space-y-2 text-sm">
+            <li>April 12 - Vet Checkup @ 10:00 AM</li>
+            <li>April 12 - Grooming Service @ 3:00 PM</li>
+          </ul>
+        </div>
+        <button class="mt-6 self-start px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition">Manage Appointments</button>
+      </div>
+    </div>
+
+    <!-- BOTTOM SECTION -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Top Sellers Table -->
+      <div class="bg-white shadow rounded-lg p-6">
+        <h3 class="text-lg font-semibold mb-4">🏆 Top Performing Sellers</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-left text-gray-700 border border-gray-200">
+            <thead class="bg-gray-50 text-gray-600 uppercase">
+              <tr>
+                <th class="px-4 py-2 border">Seller</th>
+                <th class="px-4 py-2 border">Sales</th>
+                <th class="px-4 py-2 border">Products</th>
+                <th class="px-4 py-2 border">Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-white">
+                <td class="px-4 py-2 border">Pet Heaven</td>
+                <td class="px-4 py-2 border">₱15,000</td>
+                <td class="px-4 py-2 border">12</td>
+                <td class="px-4 py-2 border">4.9⭐</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="px-4 py-2 border">Woof Shop</td>
+                <td class="px-4 py-2 border">₱10,800</td>
+                <td class="px-4 py-2 border">9</td>
+                <td class="px-4 py-2 border">4.7⭐</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Graph Placeholder -->
+      <div class="bg-white shadow rounded-lg p-6 flex flex-col items-center justify-center text-center h-full">
+        <h3 class="text-lg font-semibold mb-4">📈 Monthly Revenue</h3>
+        <div class="w-full h-64 bg-gray-100 flex items-center justify-center rounded-lg">
+          <p class="text-gray-400">Chart will be displayed here</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

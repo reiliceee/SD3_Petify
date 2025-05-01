@@ -5,12 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class PetController {
-
-    @GetMapping("/")
-    public String homePage() {
-        return "Homepage"; // Homepage.html
-    }
-
+  
     @GetMapping("/about")
     public String aboutPage() {
         return "about"; // about.html
@@ -23,7 +18,13 @@ public class PetController {
 
     @GetMapping("/contacts")
     public String contactPage() {
-        return "contacts"; // contacts.html
+        return "contacts"; // Looks for about.html inside src/main/resources/templates/
+    }
+
+
+    @GetMapping("/")
+    public String homePage() {
+        return "Homepage"; // This points to Homepage.html inside /templates
     }
 
     @GetMapping("/profile")
@@ -61,4 +62,17 @@ public class PetController {
     public String CustomerServicePage() {
         return "CustomerService"; // CustomerService.html
     }
+    @GetMapping("/overview")
+    public String adminOverview() {
+        return "overview"; // Loads overview.html
+    }
+     
+    @GetMapping("/inbox")
+    public String inbox() {
+        return "inbox"; // Loads inbox.html
+    }
+
+
+
+
 }
