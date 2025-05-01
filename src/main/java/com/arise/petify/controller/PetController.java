@@ -92,6 +92,11 @@ public class PetController {
      public String loginPage() {
          return "login"; // This points to login.html inside /templates
      }
-
+  
+     @GetMapping("/dashboard")
+     public String userDashboard() {
+         return "Userdash";
+     }
+     
 
 }
