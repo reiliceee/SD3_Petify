@@ -97,6 +97,10 @@ public class PetController {
      public String userDashboard() {
          return "Userdash";
      }
-     
+     @GetMapping("/forgot-password")
+public String showForgotPasswordPage() {
+    return "Forgotpass";  // This should match your forgot-password.html (without the .html)
+}
+
 
 }

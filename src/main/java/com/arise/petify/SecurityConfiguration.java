@@ -13,7 +13,7 @@ public class SecurityConfiguration {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-            .requestMatchers("/", "/login", "/register", "/home","/homepage", "/shop", "/appointments", "/about", "/services", "/contacts", "/api/**", "/images/**", "/config/**","/homepage/**","/profile/**","/overview/**","/inbox/**","/pet-management", "/pet-management/**","/Adminprofile/**","/dashboard/**").permitAll()
+            .requestMatchers("/", "/login", "/register", "/home","/homepage", "/shop", "/appointments", "/about", "/services", "/contacts", "/api/**", "/images/**", "/config/**","/homepage/**","/profile/**","/overview/**","/inbox/**","/pet-management", "/pet-management/**","/Adminprofile/**","/dashboard/**","/forgot-password/**").permitAll()
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form.disable());
