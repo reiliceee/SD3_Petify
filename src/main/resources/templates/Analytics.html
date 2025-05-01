@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Analytics Dashboard - Petify</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Fredoka', sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen p-8">
+
+  <div class="max-w-7xl mx-auto bg-white p-6 rounded shadow">
+    <h1 class="text-3xl font-bold text-orange-600 mb-2">Analytics Dashboard</h1>
+    <p class="text-gray-600 mb-6">Track key metrics: user activity, service usage, and sales data.</p>
+    <a href="/dashboard" class="inline-block bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400 mb-4">
+        ← Back to Dashboard
+      </a>
+
+    <!-- Date Range Filter -->
+    <div class="mb-6 flex space-x-4 items-center">
+      <label class="text-sm font-semibold">From:</label>
+      <input type="date" id="startDate" class="p-2 border rounded">
+      <label class="text-sm font-semibold">To:</label>
+      <input type="date" id="endDate" class="p-2 border rounded">
+      <button id="filterBtn" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">Apply Filter</button>
+    </div>
+
+    <!-- Summary Metrics -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+      <div class="bg-orange-100 p-4 rounded shadow text-center">
+        <h2 class="text-xl font-bold">1,250</h2>
+        <p class="text-gray-700">Active Users</p>
+      </div>
+      <div class="bg-orange-100 p-4 rounded shadow text-center">
+        <h2 class="text-xl font-bold">320</h2>
+        <p class="text-gray-700">Service Uses</p>
+      </div>
+      <div class="bg-orange-100 p-4 rounded shadow text-center">
+        <h2 class="text-xl font-bold">$15,400</h2>
+        <p class="text-gray-700">Total Sales</p>
+      </div>
+    </div>
+
+    <!-- Analytics Charts -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white p-4 rounded shadow" style="height: 300px;">
+            <h3 class="text-lg font-semibold mb-2">User Activity (Last 7 Days)</h3>
+            <canvas id="userActivityChart"></canvas>
+          </div>
+          
+          <div class="bg-white p-4 rounded shadow" style="height: 300px;">
+            <h3 class="text-lg font-semibold mb-2">Sales Over Time</h3>
+            <canvas id="salesChart"></canvas>
+          </div>
+          
+    </div>
+  </div>
+
+  <script>
+    const userActivityCtx = document.getElementById('userActivityChart').getContext('2d');
+    const salesCtx = document.getElementById('salesChart').getContext('2d');
+
+    const userActivityChart = new Chart(userActivityCtx, {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          label: 'Active Users',
+          data: [120, 150, 180, 170, 200, 220, 250],
+          borderColor: 'orange',
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+
+    const salesChart = new Chart(salesCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+        datasets: [{
+          label: 'Sales ($)',
+          data: [3000, 4000, 3500, 4900],
+          backgroundColor: 'rgba(255, 165, 0, 0.6)'
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+
+    document.getElementById('filterBtn').addEventListener('click', () => {
+      const start = document.getElementById('startDate').value;
+      const end = document.getElementById('endDate').value;
+      alert(`Apply filter from ${start} to ${end} (backend logic to be added)`);
+    });
+  </script>
+
+</body>
+</html>

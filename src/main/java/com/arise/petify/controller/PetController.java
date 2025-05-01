@@ -98,9 +98,40 @@ public class PetController {
          return "Userdash";
      }
      @GetMapping("/forgot-password")
-public String showForgotPasswordPage() {
+     public String showForgotPasswordPage() {
     return "Forgotpass";  // This should match your forgot-password.html (without the .html)
-}
+    }
+
+
+    @GetMapping("/medical-services")
+    public String showMedicalServicesPage() {
+        return "MedicalService";  // This refers to medical-services.html under /templates
+    }
+
+    @GetMapping("/grooming-services")
+    public String showGroomingServicesPage() {
+    return "GroomService";  // points to grooming-services.html in templates
+    }
+
+    @GetMapping("/pet-care-services")
+    public String showPetCareServicesPage() {
+    return "PetCare";  // points to pet-care-services.html
+     }
+
+     @GetMapping("/analytics")
+    public String showAnalyticsPage() {
+        return "Analytics";  // This looks for analytics.html in src/main/resources/templates
+    }
+    
+    @GetMapping("/purchase-pets")
+    public String showPurchasePetsPage() {
+        return "Purchasepets";  // This looks for purchase-pets.html in src/main/resources/templates
+    }
+
+    @GetMapping("/book-appointment")
+    public String showBookAppointmentPage() {
+        return "Bookservice";  // This should match book-appointment.html in your /templates folder
+    }
 
 
 }
