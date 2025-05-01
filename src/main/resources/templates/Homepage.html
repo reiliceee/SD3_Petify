@@ -2,42 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Petify</title>
-    <link rel="stylesheet" href="/profile.css/Userprof.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="dashboard">
+<body class="bg-orange-50 font-sans">
+    <div class="flex min-h-screen">
 
-        <aside class="sidebar">
-            <div class="sidebar-top">
-              <h2 class="logo">PETIFY</h2>
-              <p class="sidebar-title">Navigation</p>
-              <ul class="nav-list">
-                <li><a href="/" class="[active-class]"><span>🏠</span> Home</a></li>
-                <li><a href="/profile" class="[active-class]"><span>👤</span> Profile</a></li>
-                <li><a href="/shop" class="[active-class]"><span>🛒</span> Buy Pets & Products</a></li>
-                <li><a href="/appointments" class="[active-class]"><span>📅</span> Appointments</a></li>
-                <li><a href="/lost-found" class="[active-class]"><span>🕵️</span> Lost & Found</a></li>
-                <li><a href="/community" class="[active-class]"><span>💬</span> Community</a></li>
-                <li><a href="/feedback" class="[active-class]"><span>⭐</span> Rating & Feedback</a></li>
-                <li><a href="/about" class="[active-class]"><span>📖</span> About</a></li>
-                <li><a href="/services" class="[active-class]"><span>🛠️</span> Services</a></li>
-                <li><a href="/contacts" class="[active-class]"><span>📞</span> Contact</a></li>
-              </ul>
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white shadow-lg flex-shrink-0">
+            <div class="p-6 border-b">
+                <h2 class="text-2xl font-bold text-orange-500">PETIFY</h2>
+                <p class="text-gray-500 mt-2">Navigation</p>
             </div>
-          </aside>
+            <nav class="p-6 space-y-4 text-gray-700">
+                <ul class="space-y-2">
+                    <li><a href="/" class="flex items-center gap-2 hover:text-orange-500"><span>🏠</span> Home</a></li>
+                    <li><a href="/profile" class="flex items-center gap-2 hover:text-orange-500"><span>👤</span> Profile</a></li>
+                    <li><a href="/shop" class="flex items-center gap-2 hover:text-orange-500"><span>🛒</span> Buy Pets & Products</a></li>
+                    <li><a href="/appointments" class="flex items-center gap-2 hover:text-orange-500"><span>📅</span> Appointments</a></li>
+                    <li><a href="/lost-found" class="flex items-center gap-2 hover:text-orange-500"><span>🕵️</span> Lost & Found</a></li>
+                    <li><a href="/community" class="flex items-center gap-2 hover:text-orange-500"><span>💬</span> Community</a></li>
+                    <li><a href="/feedback" class="flex items-center gap-2 hover:text-orange-500"><span>⭐</span> Rating & Feedback</a></li>
+                    <li><a href="/about" class="flex items-center gap-2 hover:text-orange-500"><span>📖</span> About</a></li>
+                    <li><a href="/services" class="flex items-center gap-2 hover:text-orange-500"><span>🛠️</span> Services</a></li>
+                    <li><a href="/contacts" class="flex items-center gap-2 hover:text-orange-500"><span>📞</span> Contact</a></li>
+                </ul>
+            </nav>
+        </aside>
 
         <!-- Main Homepage Content -->
-        <main class="settings-container">
-            <div class="settings-box">
-                <h1>Welcome to Petify 🐾</h1>
-                <p>Your one-stop hub for pets and pet lovers!</p>
-                <p>Manage your pets, shop for products, book services, and connect with other pet lovers—all in one place.</p>
-                <a href="/profile" class="btn btn-update" style="margin-top: 20px;">Go to Profile</a>
+        <main class="flex-1 p-10">
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow p-10 text-center">
+                <h1 class="text-3xl font-bold text-orange-500 mb-4">Welcome to Petify 🐾</h1>
+                <p class="text-gray-600 mb-2">Your one-stop hub for pets and pet lovers!</p>
+                <p class="text-gray-600 mb-6">Manage your pets, shop for products, book services, and connect with other pet lovers—all in one place.</p>
+                <a href="/profile" class="inline-block px-6 py-3 bg-orange-500 text-white rounded hover:bg-orange-600 transition">Go to Profile</a>
             </div>
         </main>
 
     </div>
 </body>
 </html>
- 
