@@ -29,7 +29,10 @@ public class LoginController {
         QuerySnapshot result = query.get();
 
         if (!result.isEmpty()) {
-            return "redirect:/dashboard";  // success → go to index.html
+            if (email.equalsIgnoreCase("admin@gmail.com")) {
+                return "redirect:/admin";
+            }
+            return "redirect:/home";  // success → go to index.html
         } else {
             model.addAttribute("error", "Invalid email or password");
             return "login";  // stay on login page

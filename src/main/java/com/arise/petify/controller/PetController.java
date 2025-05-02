@@ -21,10 +21,14 @@ public class PetController {
         return "contacts"; // Looks for about.html inside src/main/resources/templates/
     }
 
+    @GetMapping("/index")
+    public String LandingPage() {
+        return "index"; // This points to Homepage.html inside /templates
+    }
 
     @GetMapping("/home")
-    public String homePage() {
-        return "Homepage"; // This points to Homepage.html inside /templates
+    public String homepage() {
+        return "homepage"; // This points to Homepage.html inside /templates
     }
 
     @GetMapping("/profile")
@@ -133,5 +137,9 @@ public class PetController {
         return "Bookservice";  // This should match book-appointment.html in your /templates folder
     }
 
-
+    @GetMapping("/admin")
+    public String AdminPage() {
+        return "admin"; 
+    }
 }
+
