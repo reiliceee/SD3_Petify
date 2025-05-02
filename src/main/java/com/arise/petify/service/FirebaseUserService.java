@@ -24,7 +24,11 @@ public class FirebaseUserService {
         try {
             UserRecord userRecord = FirebaseAuth.getInstance().createUser(request);
             System.out.println("✅ Successfully created user in Auth: " + userRecord.getUid());
-
+            
+            if ("admin@gmail.com".equalsIgnoreCase(user.getEmail())) {
+                return "Cannot register as admin.";
+            }
+            
             // Save user data to Firestore
             ApiFuture<WriteResult> future = db.collection("users")
                     .document(user.getEmail())
@@ -36,5 +40,6 @@ public class FirebaseUserService {
             e.printStackTrace();
             return "Error saving user: " + e.getMessage();
         }
+        
     }
 }

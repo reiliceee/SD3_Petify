@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Petify</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+
+<!-- Buy Modal -->
+<div id="buyModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-8 rounded-lg w-full max-w-md">
+        <h2 class="text-2xl font-bold mb-4 text-center">Buy Item</h2>
+        <form onsubmit="submitPurchase(event)">
+            <input type="hidden" id="buyItemName">
+
+            <div class="mb-4">
+                <label class="block text-gray-700">Full Name</label>
+                <input type="text" id="buyerName" class="w-full px-4 py-2 border rounded" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Email</label>
+                <input type="email" id="buyerEmail" class="w-full px-4 py-2 border rounded" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Contact No.</label>
+                <input type="text" id="buyerContact" class="w-full px-4 py-2 border rounded" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Address</label>
+                <textarea id="buyerAddress" class="w-full px-4 py-2 border rounded" required></textarea>
+            </div>
+            <div class="flex justify-between">
+                <button type="submit"
+                    class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Submit</button>
+                <button type="button" onclick="closeModal()"
+                    class="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Purchase Log Section -->
+<div id="purchase-log" class="bg-white p-6 m-10 rounded-xl shadow-md hidden">
+    <h3 class="text-xl font-bold text-gray-800 mb-4">Purchase Records</h3>
+    <ul id="purchase-list" class="space-y-2 text-gray-700"></ul>
+</div>
+
+
+<body class="bg-gradient-to-r from-white to-yellow-300 font-sans">
+
+    <div class="flex h-screen w-full">
+
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white shadow-xl flex-shrink-0 sticky top-0 h-screen z-10">
+            <div class="p-6 border-b">
+                <h2 class="text-3xl font-extrabold text-orange-500 tracking-wide">PETIFY</h2>
+                <p class="text-sm text-gray-400 mt-2">Navigation</p>
+            </div>
+            <nav class="p-6 space-y-4 text-gray-700">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="/"
+                            class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 ease-in-out bg-orange-100 text-orange-700 font-bold shadow-sm hover:bg-orange-500 hover:text-white hover:scale-105">
+                            <span>🏠</span> Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/profile"
+                            class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 ease-in-out hover:bg-orange-100 hover:text-orange-600 hover:scale-105">
+                            <span>👤</span> Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/shop"
+                            class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 ease-in-out hover:bg-orange-100 hover:text-orange-600 hover:scale-105">
+                            <span>🛒</span> Buy Pets & Products
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/appointments"
+                            class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 ease-in-out hover:bg-orange-100 hover:text-orange-600 hover:scale-105">
+                            <span>📅</span> Appointments
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/about"
+                            class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 ease-in-out hover:bg-orange-100 hover:text-orange-600 hover:scale-105">
+                            <span>📖</span> About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/services"
+                            class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 ease-in-out hover:bg-orange-100 hover:text-orange-600 hover:scale-105">
+                            <span>🛠️</span> Services
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/contacts"
+                            class="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 ease-in-out hover:bg-orange-100 hover:text-orange-600 hover:scale-105">
+                            <span>📞</span> Contact
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-10 overflow-y-auto">
+
+            <!-- Toggle Buttons -->
+            <div class="flex justify-center mb-6 space-x-4">
+                <button
+                    class="bg-yellow-200 text-brown-700 py-2 px-4 rounded-full font-semibold transition hover:bg-green-200"
+                    onclick="renderAll()">All</button>
+                <button
+                    class="bg-yellow-200 text-brown-700 py-2 px-4 rounded-full font-semibold transition hover:bg-green-200"
+                    onclick="showSection('pets')">Pets</button>
+                <button
+                    class="bg-yellow-200 text-brown-700 py-2 px-4 rounded-full font-semibold transition hover:bg-green-200"
+                    onclick="showSection('products')">Products</button>
+            </div>
+
+            <!-- Filters -->
+            <div class="flex justify-center gap-4 mb-4" id="itemFilters">
+                <button
+                    class="bg-yellow-200 text-brown-700 py-2 px-4 rounded-full font-semibold transition hover:bg-green-200"
+                    onclick="filterCategory('dogs')">Dogs</button>
+                <button
+                    class="bg-yellow-200 text-brown-700 py-2 px-4 rounded-full font-semibold transition hover:bg-green-200"
+                    onclick="filterCategory('cats')">Cats</button>
+                <button
+                    class="bg-yellow-200 text-brown-700 py-2 px-4 rounded-full font-semibold transition hover:bg-green-200"
+                    onclick="filterCategory('birds')">Birds</button>
+                <button
+                    class="bg-yellow-200 text-brown-700 py-2 px-4 rounded-full font-semibold transition hover:bg-green-200"
+                    onclick="filterCategory('hamsters')">Hamsters</button>
+            </div>
+
+            <div class="flex justify-center gap-4 mb-4" id="productFilters">
+                <button
+                    class="bg-yellow-200 text-brown-700 py-2 px-4 rounded-full font-semibold transition hover:bg-green-200"
+                    onclick="filterProductCategory('dogFood')">Dog Food</button>
+                <button
+                    class="bg-yellow-200 text-brown-700 py-2 px-4 rounded-full font-semibold transition hover:bg-green-200"
+                    onclick="filterProductCategory('catFood')">Cat Food</button>
+                <button
+                    class="bg-yellow-200 text-brown-700 py-2 px-4 rounded-full font-semibold transition hover:bg-green-200"
+                    onclick="filterProductCategory('birdFood')">Bird Food</button>
+                <button
+                    class="bg-yellow-200 text-brown-700 py-2 px-4 rounded-full font-semibold transition hover:bg-green-200"
+                    onclick="filterProductCategory('hamsterFood')">Hamster Food</button>
+            </div>
+
+            <!-- Item List -->
+            <div id="item-list" class="space-y-6"></div>
+
+        </main>
+    </div>
+
+
+
+    <!-- JavaScript -->
+    <script>
+        let purchases = [];
+        let currentSection = 'all';
+
+        let pets = [
+            //LIST OF DOGS
+            { id: 1, name: 'Shih Tzu', description: 'A small, affectionate companion dog known for its long, flowing coat.', image: '/images/Pets/ShihTzu.jpg', category: 'dogs' },
+            { id: 2, name: 'Dachshund', description: 'A lively and clever breed with a long body and short legs, originally bred for hunting badgers.', image: '/images/Pets/Dachshund.jpg', category: 'dogs' },
+            { id: 3, name: 'Poodle', description: 'An intelligent and elegant breed known for its hypoallergenic coat and versatility in training.', image: '/images/Pets/Poodle.jpg', category: 'dogs' },
+            { id: 4, name: 'Golden Retriever', description: 'Friendly, intelligent, and devoted, this breed is beloved for its gentle nature and trainability.', image: '/images/Pets/GoldenRetriever.jpg', category: 'dogs' },
+            { id: 5, name: 'Labrador Retriever', description: 'A loyal and outgoing breed, known for its friendliness and strong retrieving instincts.', image: '/images/Pets/LabradorRetriever.jpg', category: 'dogs' },
+
+            //LIST OF CATS
+            { id: 6, name: 'Persian Cat', description: 'A large, long-haired breed known for its calm demeanor.', image: '/images/Pets/PersianCat.jpg', category: 'cats' },
+            { id: 7, name: 'Siamese', description: 'A sleek, vocal cat breed known for its striking blue eyes and affectionate nature.', image: '/images/Pets/Siamese.jpg', category: 'cats' },
+            { id: 8, name: 'Sphynx', description: 'A hairless cat breed noted for its extroverted personality and warm, suede-like skin.', image: '/images/Pets/Sphynx.jpg', category: 'cats' },
+            { id: 9, name: 'Abyssinian', description: 'An active and curious breed with a short, ticked coat and a love for climbing and exploring.', image: '/images/Pets/Abyssinian.jpg', category: 'cats' },
+            { id: 10, name: 'British Shorthair', description: 'A sturdy and easygoing breed with a plush coat and a calm, affectionate temperament.', image: '/images/Pets/BritishShorthair.jpg', category: 'cats' },
+
+
+            //LIST OF PARROTS
+            { id: 11, name: 'African Grey Parrot', description: 'An incredibly intelligent and talkative bird, known for its ability to mimic human speech and its deep emotional bonds with its owners.', image: '/images/Pets/AfricanGreyParrot.jpg', category: 'birds' },
+            { id: 12, name: 'Budgerigar Parrot', description: 'A small and colorful parrot, known for its playful nature and social behavior, often forming strong bonds with its human companions.', image: '/images/Pets/BudgerigarParrot.jpg', category: 'birds' },
+            { id: 13, name: 'Cockatiel Parrot', description: 'A friendly and affectionate bird with a signature crest and a whistling personality, often forming close relationships with its owners.', image: '/images/Pets/CockatielParrot.jpg', category: 'birds' },
+            { id: 14, name: 'PH Hanging Parrot', description: 'A small, vibrantly colored parrot species known for its striking green feathers and unique hanging perch style.', image: '/images/Pets/PH_Hanging_Parrot.jpg', category: 'birds' },
+            { id: 15, name: 'Macaw Parrot', description: 'A large, vividly colored parrot known for its striking plumage, intelligence, and strong social bonds with humans and other animals.', image: '/images/Pets/MacawParrot.jpg', category: 'birds' },
+
+            //LIST OF HAMSTERS
+            { id: 16, name: 'Dwarf Campbell Russian Hamster', description: 'A small and active hamster breed, known for its sociable nature and distinct reddish-brown fur.', image: '/images/Pets/DwarfCampbellRussianHamster.jpg', category: 'hamsters' },
+            { id: 17, name: 'Dwarf Winter White Russian Hamster', description: 'A friendly and adaptable hamster breed, known for its winter white fur coat and playful personality.', image: '/images/Pets/DwarfWinterWhiteRussianHamster.jpg', category: 'hamsters' },
+            { id: 18, name: 'Roborovski Hamster', description: 'One of the smallest hamster breeds, known for its energetic and fast-moving behavior, often kept as a pet for its cuteness and speed.', image: '/images/Pets/RoborovskiHamster.jpg', category: 'hamsters' },
+            { id: 19, name: 'Syrian Hamster', description: 'A popular and solitary hamster breed, known for its larger size, soft fur, and gentle temperament.', image: '/images/Pets/SyrianHamster.jpg', category: 'hamsters' },
+            { id: 20, name: 'Chinese Hamster', description: 'A small and agile hamster breed, recognized for its long body and unique, slightly curved tail, making it one of the more distinct hamster species.', image: '/images/Pets/ChineseHamster.jpg', category: 'hamsters' },
+
+
+        ];
+
+        let products = [
+            // Dog Food (ID 1–3)
+            { id: 1, name: 'Blue Buffalo Canned Dog Food', image: '/images/Products/BlueBuffalo_Canned_DogFood.jpg', category: 'dogFood' },
+            { id: 2, name: 'Hill’s Science Diet Canned Dog Food', image: '/images/Products/Hill_Science_DietCanned_DogFood.jpg', category: 'dogFood' },
+            { id: 3, name: 'Pedigree Chopped Ground Dinner', image: '/images/Products/PedigreeChoppedGround.jpg', category: 'dogFood' },
+
+            // Cat Food (ID 4–6)
+            { id: 4, name: 'Friskies Farm Favorites', image: '/images/Products/FriskiesFarm.webp', category: 'catFood' },
+            { id: 5, name: 'Royal Canin Feline Health Nutrition', image: '/images/Products/RoyalCanin.jpg', category: 'catFood' },
+            { id: 6, name: 'Wellness CORE Grain-Free Cat Food', image: '/images/Products/WellnessCORE.jpg', category: 'catFood' },
+
+            // Bird Food (ID 7–9)
+            { id: 7, name: 'Harrison’s Organic Bird Food', image: '/images/Products/Harrison_Organic_BirdFood.jpg', category: 'birdFood' },
+            { id: 8, name: 'Lafeber Nutri-Berries', image: '/images/Products/Lafeber_Nutri-Berries.jpg', category: 'birdFood' },
+            { id: 9, name: 'ZuPreem FruitBlend Bird Food', image: '/images/Products/ZuPreem_FruitBlend.jpg', category: 'birdFood' },
+
+            // Hamster Food (ID 10–12)
+            { id: 10, name: 'Higgins Sunburst Hamster Food', image: '/images/Products/HigginsSunburst_HamsterFood.jpg', category: 'hamsterFood' },
+            { id: 11, name: 'Kaytee Forti-Diet Pro Health', image: '/images/Products/Kaytee_Forti_Diet_HamsterFood.jpg', category: 'hamsterFood' },
+            { id: 12, name: 'Oxbow Essentials Hamster & Gerbil Food', image: '/images/Products/OxbowEssentials_HamsterFood.jpg', category: 'hamsterFood' },
+        ];
+
+        window.onload = function () {
+            renderAll();
+        };
+
+        function renderAll() {
+            currentSection = 'all';
+            document.getElementById('itemFilters').style.display = 'block';
+            document.getElementById('productFilters').style.display = 'block';
+
+            const itemList = document.getElementById('item-list');
+            itemList.innerHTML = '';
+
+            pets.forEach(pet => {
+                itemList.innerHTML += renderItemHTML(pet, 'pet');
+            });
+            products.forEach(product => {
+                itemList.innerHTML += renderItemHTML(product, 'product');
+            });
+        }
+
+        function showSection(type) {
+            currentSection = type;
+
+            if (type === 'pets') {
+                document.getElementById('itemFilters').style.display = 'block';
+                document.getElementById('productFilters').style.display = 'none';
+                renderPets();
+            } else if (type === 'products') {
+                document.getElementById('itemFilters').style.display = 'none';
+                document.getElementById('productFilters').style.display = 'block';
+                renderProducts();
+            }
+        }
+
+        function renderPets() {
+            const itemList = document.getElementById('item-list');
+            itemList.innerHTML = '';
+            pets.forEach(pet => {
+                itemList.innerHTML += renderItemHTML(pet, 'pet');
+            });
+        }
+
+        function renderProducts() {
+            const itemList = document.getElementById('item-list');
+            itemList.innerHTML = '';
+            products.forEach(product => {
+                itemList.innerHTML += renderItemHTML(product, 'product');
+            });
+        }
+
+        function filterCategory(category) {
+            if (currentSection === 'all' || currentSection === 'pets') {
+                const filtered = pets.filter(pet => pet.category === category);
+                renderFilteredItems(filtered, 'pet');
+            }
+        }
+
+        function filterProductCategory(category) {
+            if (currentSection === 'all' || currentSection === 'products') {
+                const filtered = products.filter(product => product.category === category);
+                renderFilteredItems(filtered, 'product');
+            }
+        }
+
+        function renderFilteredItems(items, type) {
+            const itemList = document.getElementById('item-list');
+            itemList.innerHTML = '';
+            items.forEach(item => {
+                itemList.innerHTML += renderItemHTML(item, type);
+            });
+        }
+
+        function renderItemHTML(item, type) {
+            return `
+                <div class="flex bg-white p-6 mb-6 rounded-xl shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+                    <img src="${item.image}" alt="${item.name}" class="w-32 h-32 object-cover rounded-lg mr-6">
+                    <div class="flex-1">
+                        <h3 class="text-lg font-semibold text-gray-800">${item.name}</h3>
+                        <p class="text-gray-600">${item.description}</p>
+                        <div class="flex gap-4 mt-4">
+                            <button onclick="buyItem('${item.name}')" class="bg-green-500 text-white py-2 px-4 rounded-full hover:bg-green-600">Buy</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function buyItem(name) {
+            document.getElementById('buyItemName').value = name;
+            document.getElementById('buyModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('buyModal').classList.add('hidden');
+        }
+
+        function submitPurchase(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('buyerName').value;
+            const email = document.getElementById('buyerEmail').value;
+            const contact = document.getElementById('buyerContact').value;
+            const address = document.getElementById('buyerAddress').value;
+            const item = document.getElementById('buyItemName').value;
+
+            const newPurchase = {
+                id: Date.now(),
+                item,
+                name,
+                email,
+                contact,
+                address
+            };
+
+            purchases.push(newPurchase);
+            updatePurchaseLog();
+            closeModal();
+            event.target.reset();
+        }
+
+        function updatePurchaseLog() {
+            const list = document.getElementById('purchase-list');
+            const log = document.getElementById('purchase-log');
+            list.innerHTML = '';
+
+            if (purchases.length === 0) {
+                log.classList.add('hidden');
+                return;
+            }
+
+            log.classList.remove('hidden');
+            purchases.forEach(purchase => {
+                list.innerHTML += `
+                    <li class="border-b pb-2">
+                        <strong>${purchase.item}</strong> bought by ${purchase.name} (${purchase.email}) - ${purchase.contact}<br>
+                        <small>Address: ${purchase.address}</small>
+                    </li>
+                `;
+            });
+        }
+    </script>
+</body>
+
+</html>

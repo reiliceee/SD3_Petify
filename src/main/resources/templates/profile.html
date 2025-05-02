@@ -1,80 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Account Settings</title>
-  <link rel="stylesheet" href="/profile.css/prof.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="dashboard">
-    
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="sidebar-top">
-        <h2 class="logo">PETIFY</h2>
-        <p class="sidebar-title">Admin tools</p>
-        <ul class="nav-list">
-          <li><a href="#"><span>🏠</span> Overview</a></li>
-          <li><a href="#"><span>📦</span> Products</a></li>
-          
-          <li><a href="#"><span>📅</span> Schedules</a></li>
-          <li><a href="#"><span>💸</span> Payouts</a></li>
-          <li><a href="#"><span>📊</span> Statement</a></li>
-          <li><a href="#" class="active"><span>⚙️</span> Settings</a></li>
-        </ul>
-        
-        <p class="sidebar-title">Insights</p>
-        <ul class="nav-list">
-          <li><a href="#"><span>📥</span> Inbox</a></li>
-          <li><a href="#"><span>🔔</span> Notifications</a></li>
-         
-        </ul>
-      </div>
-    </aside>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <div class="flex min-h-screen">
 
-    <!-- Main Content -->
-    <main class="settings-container">
-      <div class="settings-box">
-        <div class="settings-header">
-          <h2>Account Settings</h2>
-          <div class="tabs">
-            <button class="active">Profile</button>
-            <button>Password</button>
-            <button>Email</button>
-            <button>Notification</button>
-            <button>Settings</button>
-          </div>
-        </div>
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white shadow-lg flex-shrink-0">
+            <div class="p-6 border-b">
+                <h2 class="text-2xl font-bold text-orange-500">PETIFY</h2>
+                <p class="text-gray-500 mt-2">Admin tools</p>
+            </div>
+            <nav class="p-6 space-y-6 text-gray-700">
+                <ul class="space-y-2">
+                    <li><a href="/overview" class="flex items-center gap-2 hover:text-orange-500"><span>🏠</span> Overview</a></li>
+                    <li><a href="/profile" class="flex items-center gap-2 hover:text-orange-500"><span>👤</span> Profile</a></li>
+                    <li><a href="#" class="flex items-center gap-2 hover:text-orange-500"><span>📦</span> Products</a></li>
+                    <li><a href="#" class="flex items-center gap-2 hover:text-orange-500"><span>📅</span> Schedules</a></li>
+                    <li><a href="#" class="flex items-center gap-2 hover:text-orange-500"><span>💸</span> Payouts</a></li>
+                    <li><a href="#" class="flex items-center gap-2 hover:text-orange-500"><span>📊</span> Statement</a></li>
+                    <li><a href="#" class="flex items-center gap-2 hover:text-orange-500"><span>⚙️</span> Settings</a></li>
+                </ul>
+                <p class="text-gray-500 mt-4">Insights</p>
+                <ul class="space-y-2">
+                    <li><a href="/inbox" class="flex items-center gap-2 hover:text-orange-500"><span>📥</span> Inbox</a></li>
+                    <li><a href="#" class="flex items-center gap-2 hover:text-orange-500"><span>🔔</span> Notifications</a></li>
+                </ul>
+            </nav>
+        </aside>
 
-        <div class="avatar-section">
-          <img src="/profile.jpg" alt="Avatar" class="avatar">
-          <div class="avatar-buttons">
-            <input type="file" id="upload" hidden>
-            <label for="upload" class="btn">Upload New</label>
-            <button class="btn btn-delete">Delete Avatar</button>
-          </div>
-          
-        </div>
+        <!-- Main Content -->
+        <main class="flex-1 p-10">
+            <div class="max-w-5xl mx-auto">
+                <div class="flex items-center mb-6">
+                    <a href="/overview" class="text-orange-600 hover:text-orange-800 text-2xl mr-4">&larr;</a>
+                    <h1 class="text-3xl font-bold text-orange-600">🐾 Pet Management</h1>
+                </div>
 
-        <form class="profile-form">
-          <div class="form-row">
-            <input type="text" placeholder="Your Full Name" value="LEBRON JAMES">
-            <input type="text" placeholder="Role" value="LAKERS FORWARD">
-          </div>
-          <div class="form-row">
-            <input type="text" placeholder="Location" value="CIT">
-            <input type="text" placeholder="Shopname" value="Lenovo">
-          </div>
-          <textarea rows="5">Lead Visual Designer at @Lenovo
-Email: dubub@writetome.net</textarea>
+                <!-- Add New Pet -->
+                <div class="bg-white shadow p-6 rounded mb-8 border-l-4 border-orange-400">
+                    <h2 class="text-xl font-semibold mb-4">Add New Pet</h2>
+                    <form action="/pets" method="POST" class="space-y-4">
+                        <input type="text" name="name" placeholder="Pet Name" class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400">
+                        <input type="text" name="type" placeholder="Pet Type (e.g., Dog, Cat)" class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400">
+                        <input type="number" name="age" placeholder="Pet Age" class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400">
+                        <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 rounded">Add Pet</button>
+                    </form>
+                </div>
 
-          <div class="form-footer">
-            <button class="btn btn-update">Update Profile</button>
-          </div>
-        </form>
-      </div>
-    </main>
+                <!-- Update Pet Details -->
+                <div class="bg-white shadow p-6 rounded mb-8 border-l-4 border-yellow-400">
+                    <h2 class="text-xl font-semibold mb-4">Update Pet Details</h2>
+                    <form action="/pets/update" method="POST" class="space-y-4">
+                        <input type="text" name="id" placeholder="Pet ID" class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                        <input type="text" name="name" placeholder="New Name" class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                        <input type="text" name="type" placeholder="New Type" class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                        <input type="number" name="age" placeholder="New Age" class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                        <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white px-5 py-2 rounded">Update Pet</button>
+                    </form>
+                </div>
 
-  </div>
+                <!-- Delete Pet -->
+                <div class="bg-white shadow p-6 rounded mb-8 border-l-4 border-red-400">
+                    <h2 class="text-xl font-semibold mb-4">Delete Pet</h2>
+                    <form action="/pets/delete" method="POST" class="space-y-4">
+                        <input type="text" name="id" placeholder="Pet ID" class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-400">
+                        <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded">Delete Pet</button>
+                    </form>
+                </div>
+
+                <!-- View Pets List -->
+                <div class="bg-white shadow p-6 rounded border-l-4 border-green-400">
+                    <h2 class="text-xl font-semibold mb-4">Your Pets</h2>
+                    <div id="pets-list" class="space-y-2">
+                        <!-- Placeholder for dynamic pet list -->
+                        <p class="text-gray-500">No pets found. (Make sure your backend sends the list here.)</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
 </body>
 </html>

@@ -37,7 +37,7 @@
       </div>
       <p id="step1Error" class="text-red-500 hidden mt-2">Please fill in all fields.</p>
       <div class="flex justify-between mt-6">
-        <a href="login" class="bg-gray-300 text-gray-800 px-6 py-2 rounded hover:bg-gray-400">Login</a>
+        <a href="login" class="bg-gray-100 text-orange-500 px-6 py-2 rounded hover:border hover:border-orange-600">Login</a>
         <button class="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600" onclick="validateStep1()">Next</button>
       </div>
     </div>
@@ -147,6 +147,12 @@
         confirmPassword.classList.remove("input-error");
         document.getElementById("passwordError").classList.add("hidden");
       }
+        // ⛔ Block admin@gmail.com registration
+      if (email.value.trim().toLowerCase() === "admin@gmail.com") {
+        alert("This email is reserved for the system administrator.");
+        email.classList.add("input-error");
+        return;
+      }
 
       nextStep(4);
     }
@@ -185,7 +191,7 @@
       .then(msg => {
         console.log("✅ Registered:", msg);
         setTimeout(() => {
-          window.location.href = "/homepage";
+          window.location.href = "/home";
         }, 2000);
       })
       .catch(err => {

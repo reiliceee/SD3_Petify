@@ -28,6 +28,9 @@
         <label class="block text-sm font-medium text-gray-700">Password</label>
         <input type="password" name="password" required 
                class="w-full mt-1 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-400"/>
+        <div class="text-center mt-2">
+          <a href="forgot-password" class="text-sm text-orange-600 hover:underline">Forgot Password?</a>
+        </div>
       </div>
 
       <p id="loginError" class="text-red-600 text-sm hidden"></p>
@@ -44,47 +47,114 @@
     </form>
   </div>
 
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-  <script src="/config/firebaseconfig.js"></script> <!-- Your custom config -->
+  <!-- Admin Code Modal -->
+<div id="adminCodeModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50 transition-opacity duration-300 ease-out">
+  <div class="bg-white rounded-xl p-6 w-full max-w-sm shadow-xl transform scale-95 opacity-0 transition-all duration-300 ease-out animate-fadeIn" id="adminModalContent">
+    <h3 class="text-xl font-semibold mb-4 text-orange-600 text-center">🔐 Admin Verification</h3>
+    <p class="text-sm text-gray-600 mb-2 text-center">Enter the 6-digit admin code</p>
+    <input type="text" id="adminCodeInput" maxlength="6"
+           class="w-full border p-3 rounded mb-2 focus:ring-2 focus:ring-orange-400 text-center"
+           placeholder="Enter Code">
+    <p id="adminCodeError" class="text-red-500 text-sm mt-1 hidden text-center">❌ Invalid code. 3 attempts only.</p>
+    <div class="flex justify-end mt-4 gap-2">
+      <button onclick="closeAdminModal()" class="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400">Cancel</button>
+      <button onclick="submitAdminLogin()" class="px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-600">Submit</button>
+    </div>
+  </div>
+</div>
 
-  <script>
-    document.getElementById("loginForm").addEventListener("submit", loginUser);
-
-    function loginUser(event) {
-      event.preventDefault();
-
-      const email = document.querySelector("input[name='email']").value;
-      const password = document.querySelector("input[name='password']").value;
-      const errorBox = document.getElementById("loginError");
-      const successBox = document.getElementById("loginSuccess");
-
-      firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(userCredential => {
-          const user = userCredential.user;
-          sessionStorage.setItem("userEmail", user.email);
-          errorBox.classList.add("hidden");
-          successBox.classList.remove("hidden");
-          setTimeout(() => {
-            window.location.href = "/homepage";
-          }, 2000);
-        })
-        .catch(error => {
-          let message = "Login failed. Please try again.";
-          if (error.code === "auth/user-not-found") {
-            message = "❌ No user found with this email.";
-          } else if (error.code === "auth/wrong-password") {
-            message = "❌ Incorrect password.";
-          } else if (error.code === "auth/invalid-email") {
-            message = "❌ Invalid email format.";
-          }
-          successBox.classList.add("hidden");
-          errorBox.textContent = message;
-          errorBox.classList.remove("hidden");
-          console.error("Login failed:", error.message);
-        });
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px) scale(0.95);
     }
-  </script>
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+</style>
+
+<script>
+  const form = document.getElementById("loginForm");
+  const emailInput = document.querySelector("input[name='email']");
+  const passwordInput = document.querySelector("input[name='password']");
+  const errorBox = document.getElementById("loginError");
+  const successBox = document.getElementById("loginSuccess");
+
+  let adminAttempts = 3;
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const email = emailInput.value.trim().toLowerCase();
+
+    if (email === "admin@gmail.com") {
+      showAdminModal();
+    } else {
+      submitLogin(email, passwordInput.value);
+    }
+  });
+
+  function showAdminModal() {
+    const modal = document.getElementById("adminCodeModal");
+    const content = document.getElementById("adminModalContent");
+    modal.classList.remove("hidden");
+    content.classList.add("animate-fadeIn");
+  }
+
+  function closeAdminModal() {
+    document.getElementById("adminCodeModal").classList.add("hidden");
+    document.getElementById("adminCodeError").classList.add("hidden");
+    document.getElementById("adminCodeInput").value = "";
+    adminAttempts = 3;
+  }
+
+  function submitAdminLogin() {
+    const adminCode = document.getElementById("adminCodeInput").value.trim();
+    const errorText = document.getElementById("adminCodeError");
+
+    if (adminCode === "123456") {
+      closeAdminModal();
+      submitLogin(emailInput.value, passwordInput.value);
+    } else {
+      adminAttempts--;
+      errorText.classList.remove("hidden");
+      if (adminAttempts <= 0) {
+        errorText.textContent = "❌ Too many failed attempts. Access denied.";
+        setTimeout(() => closeAdminModal(), 1500);
+      } else {
+        errorText.textContent = `❌ Invalid code. ${adminAttempts} attempt(s) left.`;
+      }
+    }
+  }
+
+  function submitLogin(email, password) {
+    fetch("/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
+    })
+    .then(res => {
+      if (res.redirected) {
+        successBox.classList.remove("hidden");
+        errorBox.classList.add("hidden");
+        window.location.href = res.url;
+      } else {
+        errorBox.textContent = "❌ Invalid email or password.";
+        errorBox.classList.remove("hidden");
+        successBox.classList.add("hidden");
+      }
+    })
+    .catch(err => {
+      errorBox.textContent = "❌ Login error. Please try again.";
+      errorBox.classList.remove("hidden");
+      console.error(err);
+    });
+  }
+</script>
 </body>
 </html>

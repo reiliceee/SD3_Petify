@@ -1,0 +1,237 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.dashboard {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #232323;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    border-right: 2px solid #444;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .logo {
+    font-size: 2rem;
+    color: #FFD700;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.sidebar-title {
+    font-size: 0.9rem;
+    color: #aaa;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-list li {
+    margin: 12px 0;
+}
+
+.nav-list a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ccc;
+    font-size: 1.05rem;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+    background-color: #FFD700;
+    color: #232323;
+}
+
+/* Main container */
+.appointment-container {
+    padding: 40px;
+    flex-grow: 1;
+    margin-left: 250px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.appointment-container h1 {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+/* Form */
+.appointment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.appointment-form label {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Inputs */
+.styled-input,
+.styled-select,
+.styled-textarea {
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+}
+
+.styled-input:focus,
+.styled-select:focus,
+.styled-textarea:focus {
+    border-color: #FFD700;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+    outline: none;
+}
+
+/* Textarea */
+.styled-textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* Button */
+.styled-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.styled-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.styled-button:active {
+    transform: translateY(0);
+}
+
+/* Messages */
+.success-message,
+.error-message {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    animation: fadeIn 0.5s ease;
+}
+
+.success-message {
+    background-color: #28a745;
+    color: white;
+}
+
+.error-message {
+    background-color: #dc3545;
+    color: white;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Toggle */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toggle-label {
+    font-weight: bold;
+    color: #555;
+}
+
+.toggle-input {
+    appearance: none;
+    width: 50px;
+    height: 25px;
+    background-color: #ddd;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-input:checked {
+    background-color: #28a745;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.toggle-input:checked + .toggle-slider {
+    transform: translateX(25px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .appointment-container {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
